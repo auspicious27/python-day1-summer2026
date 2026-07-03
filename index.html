@@ -22,6 +22,73 @@
       <p>Yeh notes beginner learners ke liye banaye gaye hain. Aap class mein pehle topic ka simple meaning explain karo, phir story type real-world example do, phir practice code run karwao, aur last mein har line ka explanation discuss karo. Isse learners code ko ratne ke bajay samajh kar likhenge.</p>
       <p>Python ko samajhne ke liye ek simple story yaad rakho: Python ek assistant jaisa hai. Aap usko clear instructions doge, woh step-by-step kaam karega. Agar instruction galat hai, toh error dega. Programming ka main kaam hota hai problem ko small steps mein todna aur computer ko clear instruction dena.</p>
 
+      <h3>Class Start Karne Ka Simple Flow</h3>
+      <p>Class start karte time learners ko pehle yeh clear karna hai ki Python koi difficult cheez nahi hai. Python ek language hai jisme hum computer ko instructions dete hain. Jaise real life mein agar aap kisi student ko bolte ho "notebook kholo, heading likho, answer solve karo", waise hi Python mein hum computer ko bolte hain "message print karo, number add karo, user se input lo, result show karo".</p>
+      <p>Aap class mein pehle ek plain English problem bolo: "Student ke 3 subject marks lene hain aur total nikalna hai." Phir learners se pucho ki is problem mein steps kya honge. Expected steps: name lena, marks lena, total banana, percentage banana, output show karna. Isi thinking ko programming logic bolte hain. Python sirf us logic ko computer language mein likhne ka tool hai.</p>
+
+      <h3>Aaj Ke Notes Se Learners Kya Sikhoge?</h3>
+      <table>
+        <tr>
+          <th>Part</th>
+          <th>What Learner Will Understand</th>
+          <th>Real Classroom Explanation</th>
+        </tr>
+        <tr>
+          <td>Module 1</td>
+          <td>Python kya hai, kaha use hota hai, kaise install/run hota hai.</td>
+          <td>Yeh foundation hai. Learner ko pehle yeh confidence milega ki Python code kaise start hota hai.</td>
+        </tr>
+        <tr>
+          <td>Module 2</td>
+          <td>Variables, data types, input/output, and type casting.</td>
+          <td>Yeh daily programming ka storage system hai. Data ko naam dena aur use karna yahin se start hota hai.</td>
+        </tr>
+        <tr>
+          <td>Module 3</td>
+          <td>Operators and expressions ka use calculation and comparison ke liye.</td>
+          <td>Yeh logic building ka base hai. Calculator, marks system, eligibility check sab operators se bante hain.</td>
+        </tr>
+      </table>
+
+      <h3>Teacher Script: Learners Ko Kaise Samjhana Hai</h3>
+      <p>Sabse pehle bolo: "Aaj hum Python ko zero se start karenge. Aapko coding yaad nahi karni, bas har line ka reason samajhna hai." Phir ek simple analogy do: variable ko box bolo, data type ko box ke andar rakhi value ka type bolo, operator ko action bolo, aur print ko result dikhane wala speaker bolo.</p>
+      <p>Har code example mein same pattern follow karo: pehle problem statement batao, phir code dikhao, phir expected output dikhao, phir line-by-line explanation karo. Learners ko bolna ki agar output galat aaye toh panic nahi karna, error message bhi learning ka part hota hai.</p>
+
+      <h3>VS Code Mein Python Kaise Run Karna Hai</h3>
+      <p>Agar aap VS Code use kar rahe ho, toh class mein learners ko yeh exact flow dikhao. Pehle folder create karo, phir file banao, phir code likho, phir terminal se run karo. Isse learner ko samajh aata hai ki code file mein save hota hai aur terminal us file ko execute karta hai.</p>
+      <table>
+        <tr>
+          <th>Step</th>
+          <th>Kya Karna Hai?</th>
+          <th>Simple Explanation</th>
+        </tr>
+        <tr>
+          <td>Step 1</td>
+          <td>VS Code open karo aur ek folder banao, jaise <code>python-day-1</code>.</td>
+          <td>Folder ek project box jaisa hai. Iske andar aaj ke saare Python files rahenge.</td>
+        </tr>
+        <tr>
+          <td>Step 2</td>
+          <td>Folder ke andar file banao: <code>app.py</code>.</td>
+          <td><code>.py</code> extension browser/VS Code ko batata hai ki yeh Python file hai.</td>
+        </tr>
+        <tr>
+          <td>Step 3</td>
+          <td>Code likho: <code>print("Hello Python")</code>.</td>
+          <td>Yeh first instruction hai jo screen par message show karega.</td>
+        </tr>
+        <tr>
+          <td>Step 4</td>
+          <td>Terminal open karo: VS Code menu se Terminal &gt; New Terminal.</td>
+          <td>Terminal command dene ki jagah hai. Yahin se Python file run hogi.</td>
+        </tr>
+        <tr>
+          <td>Step 5</td>
+          <td>Run command likho: <code>python app.py</code> ya Mac/Linux par <code>python3 app.py</code>.</td>
+          <td>Is command ka meaning hai: Python, please <code>app.py</code> file ko execute karo.</td>
+        </tr>
+      </table>
+
       <h3>Basic Run Guide</h3>
       <table>
         <tr>
@@ -497,6 +564,36 @@ print(result2)</code></pre>
 
       <h2>Mini Practice Project: Student Marks Calculator</h2>
       <p>Ab Module 1-3 concepts ko combine karke ek small project banate hain. Yeh project variables, input, type casting, arithmetic operators, relational operators, logical operators, and output handling cover karega.</p>
+      <h3>Project Story</h3>
+      <p>Socho school mein teacher ke paas ek student ka naam aur 3 subjects ke marks hain. Teacher ko manually calculator se total, percentage, and pass/fail check karna padta hai. Hum Python se ek small helper program banayenge jo user se marks lega, total calculate karega, percentage nikalega, aur pass/fail result show karega. Yeh project beginner ke liye perfect hai kyunki isme input, variables, type casting, operators, comparison, and output sab ek saath use hote hain.</p>
+      <h3>VS Code Mein Project Kaise Implement Karna Hai</h3>
+      <table>
+        <tr>
+          <th>Step</th>
+          <th>Action</th>
+          <th>Explanation</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Folder banao: <code>student-marks-calculator</code>.</td>
+          <td>Project ke saare files ek folder mein rahenge. Beginner ko folder organization ki habit yahin se lagti hai.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>File banao: <code>marks_calculator.py</code>.</td>
+          <td>File name meaningful rakha gaya hai taaki dekhte hi samajh aaye ki yeh marks calculator ka program hai.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Niche diya gaya project code file mein paste/type karo.</td>
+          <td>Class mein learners ko type karwana better hai, kyunki typing se syntax familiar hoti hai.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Terminal mein run karo: <code>python marks_calculator.py</code>.</td>
+          <td>Python file execute hogi aur program user se input maangna start karega.</td>
+        </tr>
+      </table>
       <h4>Project Code</h4>
       <pre><code>name = input("Enter student name: ")
 math = float(input("Enter Math marks: "))
@@ -511,6 +608,16 @@ print("Student Name:", name)
 print("Total Marks:", total)
 print("Percentage:", percentage)
 print("Passed:", is_passed)</code></pre>
+      <h4>Sample Input And Output</h4>
+      <pre><code>Enter student name: Aman
+Enter Math marks: 80
+Enter Science marks: 70
+Enter English marks: 90
+
+Student Name: Aman
+Total Marks: 240.0
+Percentage: 80.0
+Passed: True</code></pre>
       <table>
         <tr>
           <th>Line / Code</th>
@@ -539,6 +646,313 @@ print("Passed:", is_passed)</code></pre>
         <tr>
           <td><code>print(...)</code></td>
           <td>Final output screen par show karta hai.</td>
+        </tr>
+      </table>
+
+      <h2>Complete Code Explanation Reference</h2>
+      <p>Is section ko class mein revision ke time use karo. Yahan har important code line ko individual level par explain kiya gaya hai. Aap learners ko bata sakte ho ki code ka har small part kuch na kuch responsibility rakhta hai. Jaise sentence mein har word ka role hota hai, waise program mein har keyword, symbol, bracket, and variable ka role hota hai.</p>
+
+      <h3>Code 1: First Python Program - Deep Explanation</h3>
+      <pre><code>print("Hello Python")
+print("Welcome to programming")</code></pre>
+      <table>
+        <tr>
+          <th>Code Part</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>print</code></td>
+          <td><code>print</code> Python ka built-in function hai. Built-in ka matlab Python ke andar already available hai, hume alag se banana nahi padta. Iska kaam screen/terminal par output show karna hai.</td>
+        </tr>
+        <tr>
+          <td><code>()</code></td>
+          <td>Parentheses function ko call karne ke liye use hote hain. Matlab hum Python ko bol rahe hain: <code>print</code> function run karo.</td>
+        </tr>
+        <tr>
+          <td><code>"Hello Python"</code></td>
+          <td>Double quotes ke andar text likha hai, isliye yeh string hai. String ka matlab text data. Python is text ko as-it-is screen par show karega.</td>
+        </tr>
+        <tr>
+          <td>Second <code>print(...)</code></td>
+          <td>Python upar se niche line by line chalta hai. Pehle <code>Hello Python</code> print hoga, phir next line ka message print hoga.</td>
+        </tr>
+      </table>
+
+      <h3>Code 2: Variables - Deep Explanation</h3>
+      <pre><code>student_name = "Aman"
+age = 21
+marks = 88.5
+
+print(student_name)
+print(age)
+print(marks)</code></pre>
+      <table>
+        <tr>
+          <th>Line / Code</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>student_name = "Aman"</code></td>
+          <td>Yahan <code>student_name</code> ek variable hai. Variable ko aap labelled box samjho. Is box ke andar <code>"Aman"</code> text store kiya gaya hai. <code>=</code> ka matlab equal in maths nahi, yahan assignment hai: right side value ko left side variable mein rakho.</td>
+        </tr>
+        <tr>
+          <td><code>age = 21</code></td>
+          <td><code>age</code> variable mein <code>21</code> store hua. Quotes nahi hain, isliye yeh number hai. Number hone ki wajah se is par calculation kar sakte hain, jaise <code>age + 1</code>.</td>
+        </tr>
+        <tr>
+          <td><code>marks = 88.5</code></td>
+          <td><code>marks</code> variable mein decimal value store hai. Python decimal number ko <code>float</code> bolta hai. Marks, percentage, price jaisi values float ho sakti hain.</td>
+        </tr>
+        <tr>
+          <td>Blank line</td>
+          <td>Blank line Python ke logic ko change nahi karti. Yeh code ko readable banane ke liye use hoti hai, jaise notebook mein paragraph gap.</td>
+        </tr>
+        <tr>
+          <td><code>print(student_name)</code></td>
+          <td>Yahan quotes nahi hain, isliye Python <code>student_name</code> ko variable samjhega aur uske andar stored value <code>Aman</code> print karega.</td>
+        </tr>
+        <tr>
+          <td><code>print(age)</code></td>
+          <td><code>age</code> variable ki value screen par show hogi. Output <code>21</code> aayega.</td>
+        </tr>
+        <tr>
+          <td><code>print(marks)</code></td>
+          <td><code>marks</code> variable ki decimal value print hogi. Output <code>88.5</code> aayega.</td>
+        </tr>
+      </table>
+
+      <h3>Code 3: Data Types - Deep Explanation</h3>
+      <pre><code>roll_no = 101
+percentage = 87.5
+name = "Riya"
+is_passed = True
+
+print(type(roll_no))
+print(type(percentage))
+print(type(name))
+print(type(is_passed))</code></pre>
+      <table>
+        <tr>
+          <th>Line / Code</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>roll_no = 101</code></td>
+          <td>Roll number whole number hai, isliye Python isko <code>int</code> type maanega. <code>int</code> ka full form integer hota hai.</td>
+        </tr>
+        <tr>
+          <td><code>percentage = 87.5</code></td>
+          <td>Percentage decimal mein hai, isliye Python isko <code>float</code> type maanega. Float decimal calculations ke liye useful hota hai.</td>
+        </tr>
+        <tr>
+          <td><code>name = "Riya"</code></td>
+          <td>Name text hai aur quotes ke andar likha hai, isliye yeh <code>str</code> type hai. <code>str</code> ka matlab string, yani text data.</td>
+        </tr>
+        <tr>
+          <td><code>is_passed = True</code></td>
+          <td>Yeh boolean value hai. Boolean sirf do values leta hai: <code>True</code> ya <code>False</code>. Decision making mein boolean bahut important hota hai.</td>
+        </tr>
+        <tr>
+          <td><code>type(roll_no)</code></td>
+          <td><code>type()</code> function variable ka data type batata hai. Is line ka output hoga <code>&lt;class 'int'&gt;</code>.</td>
+        </tr>
+        <tr>
+          <td><code>print(type(...))</code></td>
+          <td>Yahan nested function use hua hai. Pehle <code>type()</code> data type find karega, phir <code>print()</code> us result ko screen par show karega.</td>
+        </tr>
+      </table>
+
+      <h3>Code 4: Type Casting - Deep Explanation</h3>
+      <pre><code>num1 = "10"
+num2 = "20"
+
+total = int(num1) + int(num2)
+
+print(total)</code></pre>
+      <table>
+        <tr>
+          <th>Line / Code</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>num1 = "10"</code></td>
+          <td>Dekhne mein 10 number jaisa lag raha hai, lekin quotes ke andar hai. Isliye Python ke liye yeh text/string hai, number nahi.</td>
+        </tr>
+        <tr>
+          <td><code>num2 = "20"</code></td>
+          <td>Same tarah <code>"20"</code> bhi string hai. Agar hum directly <code>num1 + num2</code> karenge toh output <code>1020</code> ho sakta hai, kyunki strings concatenate hoti hain.</td>
+        </tr>
+        <tr>
+          <td><code>int(num1)</code></td>
+          <td><code>int()</code> string number ko real integer number mein convert karta hai. <code>"10"</code> se <code>10</code> ban jata hai.</td>
+        </tr>
+        <tr>
+          <td><code>int(num2)</code></td>
+          <td><code>"20"</code> string ko integer <code>20</code> mein convert karta hai.</td>
+        </tr>
+        <tr>
+          <td><code>total = int(num1) + int(num2)</code></td>
+          <td>Conversion ke baad Python actual addition karta hai: 10 + 20 = 30. Result <code>total</code> variable mein store hota hai.</td>
+        </tr>
+        <tr>
+          <td><code>print(total)</code></td>
+          <td>Final result screen par show hota hai. Output <code>30</code> aayega.</td>
+        </tr>
+      </table>
+
+      <h3>Code 5: Input And Output - Deep Explanation</h3>
+      <pre><code>name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+print("Hello", name)
+print("Next year your age will be", age + 1)</code></pre>
+      <table>
+        <tr>
+          <th>Line / Code</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>input("Enter your name: ")</code></td>
+          <td><code>input()</code> user se keyboard input leta hai. Brackets ke andar jo message hai woh prompt hai, yani user ko instruction: name enter karo.</td>
+        </tr>
+        <tr>
+          <td><code>name = input(...)</code></td>
+          <td>User jo bhi name type karega, woh <code>name</code> variable mein store ho jayega. Example: user <code>Rahul</code> type kare toh <code>name</code> mein <code>Rahul</code> store hoga.</td>
+        </tr>
+        <tr>
+          <td><code>int(input("Enter your age: "))</code></td>
+          <td>Age input pehle string form mein aata hai. <code>int()</code> usko number mein convert karta hai, taaki <code>age + 1</code> calculation ho sake.</td>
+        </tr>
+        <tr>
+          <td><code>print("Hello", name)</code></td>
+          <td>Comma ka use karke ek fixed text aur ek variable saath print kiya gaya hai. Python comma ke beech automatic space add karta hai.</td>
+        </tr>
+        <tr>
+          <td><code>age + 1</code></td>
+          <td>Yeh expression next year age calculate karta hai. Agar age 20 hai toh result 21 hoga.</td>
+        </tr>
+      </table>
+
+      <h3>Code 6: Arithmetic Operators - Deep Explanation</h3>
+      <pre><code>a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)
+print(a ** b)
+print(a // b)</code></pre>
+      <table>
+        <tr>
+          <th>Line / Code</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>a = 10</code></td>
+          <td><code>a</code> variable mein 10 store kiya. Isko first number maan sakte hain.</td>
+        </tr>
+        <tr>
+          <td><code>b = 3</code></td>
+          <td><code>b</code> variable mein 3 store kiya. Isko second number maan sakte hain.</td>
+        </tr>
+        <tr>
+          <td><code>print(a + b)</code></td>
+          <td><code>+</code> addition karta hai. 10 + 3 = 13, output 13.</td>
+        </tr>
+        <tr>
+          <td><code>print(a - b)</code></td>
+          <td><code>-</code> subtraction karta hai. 10 - 3 = 7.</td>
+        </tr>
+        <tr>
+          <td><code>print(a * b)</code></td>
+          <td><code>*</code> multiplication karta hai. 10 * 3 = 30.</td>
+        </tr>
+        <tr>
+          <td><code>print(a / b)</code></td>
+          <td><code>/</code> normal division karta hai. Python division ka result float deta hai, isliye output decimal mein aa sakta hai.</td>
+        </tr>
+        <tr>
+          <td><code>print(a % b)</code></td>
+          <td><code>%</code> modulo operator hai. Yeh division ke baad remainder deta hai. 10 ko 3 se divide karne par remainder 1 hai.</td>
+        </tr>
+        <tr>
+          <td><code>print(a ** b)</code></td>
+          <td><code>**</code> power operator hai. 10 ** 3 ka matlab 10 ki power 3, yani 1000.</td>
+        </tr>
+        <tr>
+          <td><code>print(a // b)</code></td>
+          <td><code>//</code> floor division hai. Yeh decimal part hata kar integer-like result deta hai. 10 // 3 ka result 3.</td>
+        </tr>
+      </table>
+
+      <h3>Code 7: Student Marks Calculator - Full Line-by-Line Explanation</h3>
+      <pre><code>name = input("Enter student name: ")
+math = float(input("Enter Math marks: "))
+science = float(input("Enter Science marks: "))
+english = float(input("Enter English marks: "))
+
+total = math + science + english
+percentage = total / 3
+is_passed = percentage >= 40
+
+print("Student Name:", name)
+print("Total Marks:", total)
+print("Percentage:", percentage)
+print("Passed:", is_passed)</code></pre>
+      <table>
+        <tr>
+          <th>Line / Code</th>
+          <th>Detailed Simple Hinglish Explanation</th>
+        </tr>
+        <tr>
+          <td><code>name = input("Enter student name: ")</code></td>
+          <td>Program user se student ka naam maangta hai. Jo name user type karega, woh <code>name</code> variable mein store ho jayega. Name text hota hai, isliye type casting ki zaroorat nahi.</td>
+        </tr>
+        <tr>
+          <td><code>math = float(input("Enter Math marks: "))</code></td>
+          <td>Program Math marks maangta hai. <code>input()</code> marks ko text form mein leta hai. <code>float()</code> us text ko decimal number mein convert karta hai, taaki calculation possible ho.</td>
+        </tr>
+        <tr>
+          <td><code>science = float(input("Enter Science marks: "))</code></td>
+          <td>Science marks bhi same process se liye ja rahe hain. Alag variable isliye banaya kyunki har subject ki value separately store karni hai.</td>
+        </tr>
+        <tr>
+          <td><code>english = float(input("Enter English marks: "))</code></td>
+          <td>English marks ko decimal number mein store kiya. Agar learner 89.5 bhi enter kare toh program handle kar lega.</td>
+        </tr>
+        <tr>
+          <td>Blank line</td>
+          <td>Yeh readability ke liye hai. Input section aur calculation section ko visually separate karta hai.</td>
+        </tr>
+        <tr>
+          <td><code>total = math + science + english</code></td>
+          <td>Yahan arithmetic addition use ho raha hai. Teen subject marks add hoke <code>total</code> variable mein store hote hain.</td>
+        </tr>
+        <tr>
+          <td><code>percentage = total / 3</code></td>
+          <td>Percentage/average nikalne ke liye total ko number of subjects, yani 3, se divide kiya. <code>/</code> division operator hai.</td>
+        </tr>
+        <tr>
+          <td><code>is_passed = percentage &gt;= 40</code></td>
+          <td>Yeh relational comparison hai. Agar percentage 40 ya usse zyada hai toh result <code>True</code>, warna <code>False</code>. Yeh result <code>is_passed</code> variable mein store hota hai.</td>
+        </tr>
+        <tr>
+          <td><code>print("Student Name:", name)</code></td>
+          <td>Output mein label <code>Student Name:</code> aur actual student name dono show honge. Label user ko output samajhne mein help karta hai.</td>
+        </tr>
+        <tr>
+          <td><code>print("Total Marks:", total)</code></td>
+          <td>Total marks screen par show karta hai. Yeh calculated value hai, directly user input nahi.</td>
+        </tr>
+        <tr>
+          <td><code>print("Percentage:", percentage)</code></td>
+          <td>Calculated percentage show karta hai. Beginner ko yahan samjhao ki variable mein stored calculation ka result print ho raha hai.</td>
+        </tr>
+        <tr>
+          <td><code>print("Passed:", is_passed)</code></td>
+          <td>Pass/fail ka boolean result show karta hai. Agar percentage 40 ya zyada hai toh <code>True</code>, warna <code>False</code>.</td>
         </tr>
       </table>
 
