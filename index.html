@@ -54,8 +54,8 @@
       <p>Sabse pehle bolo: "Aaj hum Python ko zero se start karenge. Aapko coding yaad nahi karni, bas har line ka reason samajhna hai." Phir ek simple analogy do: variable ko box bolo, data type ko box ke andar rakhi value ka type bolo, operator ko action bolo, aur print ko result dikhane wala speaker bolo.</p>
       <p>Har code example mein same pattern follow karo: pehle problem statement batao, phir code dikhao, phir expected output dikhao, phir line-by-line explanation karo. Learners ko bolna ki agar output galat aaye toh panic nahi karna, error message bhi learning ka part hota hai.</p>
 
-      <h3>VS Code Mein Python Kaise Run Karna Hai</h3>
-      <p>Agar aap VS Code use kar rahe ho, toh class mein learners ko yeh exact flow dikhao. Pehle folder create karo, phir file banao, phir code likho, phir terminal se run karo. Isse learner ko samajh aata hai ki code file mein save hota hai aur terminal us file ko execute karta hai.</p>
+      <h3>Jupyter Notebook Mein Python Kaise Run Karna Hai</h3>
+      <p>Is class mein hum code Jupyter Notebook par run karenge. Jupyter Notebook beginners ke liye bahut useful hota hai, kyunki isme code aur output ek hi page par dikhte hain. Learner ek cell mein code likhta hai, <code>Shift + Enter</code> press karta hai, aur output usi cell ke neeche show ho jata hai. Isse teacher ko samjhana easy hota hai aur learner ko turant result dikhta hai.</p>
       <table>
         <tr>
           <th>Step</th>
@@ -64,30 +64,36 @@
         </tr>
         <tr>
           <td>Step 1</td>
-          <td>VS Code open karo aur ek folder banao, jaise <code>python-day-1</code>.</td>
-          <td>Folder ek project box jaisa hai. Iske andar aaj ke saare Python files rahenge.</td>
+          <td>Anaconda Navigator open karo.</td>
+          <td>Anaconda ek package hai jisme Python ke saath Jupyter Notebook bhi milta hai. Beginners ke liye setup easy ho jata hai.</td>
         </tr>
         <tr>
           <td>Step 2</td>
-          <td>Folder ke andar file banao: <code>app.py</code>.</td>
-          <td><code>.py</code> extension browser/VS Code ko batata hai ki yeh Python file hai.</td>
+          <td>Jupyter Notebook launch karo.</td>
+          <td>Browser mein Jupyter ka dashboard open hoga. Yahi se hum notebook create and open karenge.</td>
         </tr>
         <tr>
           <td>Step 3</td>
-          <td>Code likho: <code>print("Hello Python")</code>.</td>
-          <td>Yeh first instruction hai jo screen par message show karega.</td>
+          <td>New &gt; Python 3 notebook select karo.</td>
+          <td>Ek new notebook open hogi jisme cells honge. Har cell mein Python code likh sakte hain.</td>
         </tr>
         <tr>
           <td>Step 4</td>
-          <td>Terminal open karo: VS Code menu se Terminal &gt; New Terminal.</td>
-          <td>Terminal command dene ki jagah hai. Yahin se Python file run hogi.</td>
+          <td>First cell mein code likho: <code>print("Hello Python")</code>.</td>
+          <td>Yeh first instruction hai jo notebook output area mein message show karega.</td>
         </tr>
         <tr>
           <td>Step 5</td>
-          <td>Run command likho: <code>python app.py</code> ya Mac/Linux par <code>python3 app.py</code>.</td>
-          <td>Is command ka meaning hai: Python, please <code>app.py</code> file ko execute karo.</td>
+          <td>Cell run karne ke liye <code>Shift + Enter</code> press karo.</td>
+          <td>Jupyter us cell ka code execute karega aur output cell ke neeche show karega.</td>
+        </tr>
+        <tr>
+          <td>Step 6</td>
+          <td>Next code ke liye new cell use karo.</td>
+          <td>Har topic ka code separate cell mein rakhne se learners ko output compare karna easy hota hai.</td>
         </tr>
       </table>
+      <p><strong>Important:</strong> Jupyter Notebook mein <code>input()</code> wala code bhi run hota hai. Jab cell run hoga, notebook input box show karega. User value type karega aur Enter press karega, phir next line execute hogi.</p>
 
       <h3>Basic Run Guide</h3>
       <table>
@@ -97,19 +103,19 @@
           <th>Use Kab Karna Hai?</th>
         </tr>
         <tr>
-          <td>Python Interpreter</td>
-          <td>Terminal/CMD mein <code>python</code> ya <code>python3</code> run karo, phir commands type karo.</td>
-          <td>Small testing ke liye, jaise <code>2 + 3</code> ya <code>print("Hello")</code>.</td>
+          <td>Jupyter Cell</td>
+          <td>Notebook cell mein code likho aur <code>Shift + Enter</code> press karo.</td>
+          <td>Classroom practice ke liye best, kyunki code aur output ek saath visible hota hai.</td>
         </tr>
         <tr>
-          <td>Python Script</td>
-          <td>File banao: <code>app.py</code>, code likho, then terminal mein <code>python app.py</code> run karo.</td>
-          <td>Proper program likhne ke liye.</td>
+          <td>Multiple Cells</td>
+          <td>Har topic ka code alag cell mein run karo.</td>
+          <td>Variables, data types, operators ko step-by-step samjhane ke liye useful.</td>
         </tr>
         <tr>
-          <td>Anaconda/Jupyter</td>
-          <td>Anaconda install karke Jupyter Notebook open karo, cells mein code run karo.</td>
-          <td>Data science, practice, notes + code ek saath likhne ke liye.</td>
+          <td>Input Code</td>
+          <td><code>input()</code> run hone par notebook mein input box aayega.</td>
+          <td>User input programs, calculator, marks project ke liye useful.</td>
         </tr>
       </table>
 
@@ -202,49 +208,51 @@ Welcome to programming</code></pre>
       </table>
 
       <h3>4. Installation: Python + Anaconda</h3>
-      <p>Python install karne ke liye official Python website se installer download kar sakte ho. Windows mein installation ke time <strong>Add Python to PATH</strong> option select karna important hai. PATH set hone se terminal/CMD mein <code>python</code> command directly run hoti hai.</p>
-      <p>Anaconda ek Python distribution hai jo data science ke liye useful tools ke saath aata hai, jaise Jupyter Notebook, Spyder, Conda package manager, and many libraries. Agar learners data science/AI ki taraf ja rahe hain toh Anaconda useful hai.</p>
-      <h4>Check Installation</h4>
-      <pre><code>python --version
-python</code></pre>
+      <p>Is class ke liye Anaconda install karna best rahega, kyunki Anaconda ke saath Jupyter Notebook ready milta hai. Jupyter Notebook mein learners code, output, notes, and explanation ek hi page par dekh sakte hain. Isliye beginner class ke liye yeh simple and visual approach hai.</p>
+      <p>Aap learners ko bata sakte ho ki Python engine ki tarah hai aur Jupyter Notebook us engine ko use karne ka friendly dashboard hai. Learner cell mein code likhta hai, run karta hai, aur output instantly neeche dekh leta hai.</p>
+      <h4>Check Setup In Jupyter Notebook</h4>
+      <pre><code>print("Python is working")
+2 + 3</code></pre>
       <table>
         <tr>
-          <th>Command</th>
+          <th>Cell Code</th>
           <th>Explanation</th>
         </tr>
         <tr>
-          <td><code>python --version</code></td>
-          <td>Installed Python version show karta hai. Example output: <code>Python 3.12.0</code>.</td>
+          <td><code>print("Python is working")</code></td>
+          <td>Is line se check hota hai ki Jupyter Notebook Python code execute kar raha hai. Output area mein message show hoga.</td>
         </tr>
         <tr>
-          <td><code>python</code></td>
-          <td>Python interpreter open karta hai. Interpreter mein direct Python commands run kar sakte hain.</td>
+          <td><code>2 + 3</code></td>
+          <td>Notebook last expression ka output direct show kar sakta hai. Output <code>5</code> aayega.</td>
         </tr>
       </table>
 
-      <h3>5. Running Scripts & Interpreter Basics</h3>
-      <p>Python code run karne ke do common ways hain: interpreter and script. Interpreter quick testing ke liye hota hai. Script file actual program ke liye hoti hai. File ka extension <code>.py</code> hota hai, jaise <code>main.py</code>.</p>
-      <h4>Practice Code: script.py</h4>
-      <pre><code>print("This code is running from a Python file")
+      <h3>5. Jupyter Notebook Cell Basics</h3>
+      <p>Jupyter Notebook mein code small blocks mein likha jata hai, jinko cells bolte hain. Har cell independent practice ke liye use ho sakta hai. Aap ek cell mein introduction code run kara sakte ho, next cell mein variables, next cell mein operators. Isse learners ko har topic ka output separate and clear dikhta hai.</p>
+      <h4>Practice Code: First Notebook Cell</h4>
+      <pre><code>print("This code is running inside Jupyter Notebook")
 print(10 + 20)</code></pre>
-      <h4>Run Command</h4>
-      <pre><code>python script.py</code></pre>
+      <h4>How To Run</h4>
+      <pre><code>Cell select karo
+Shift + Enter press karo
+Output cell ke neeche dekho</code></pre>
       <table>
         <tr>
-          <th>Line / Command</th>
+          <th>Line / Action</th>
           <th>Detailed Explanation</th>
         </tr>
         <tr>
-          <td><code>print("This code...")</code></td>
-          <td>File run hone par first message output karega.</td>
+          <td><code>print("This code is running inside Jupyter Notebook")</code></td>
+          <td>Yeh line notebook ke output area mein message show karegi. Isse learner ko confirm hota hai ki cell successfully run hua.</td>
         </tr>
         <tr>
           <td><code>print(10 + 20)</code></td>
           <td>Python pehle addition karega: 10 + 20 = 30, phir 30 print karega.</td>
         </tr>
         <tr>
-          <td><code>python script.py</code></td>
-          <td>Terminal se Python interpreter ko bolta hai ki <code>script.py</code> file run karo.</td>
+          <td><code>Shift + Enter</code></td>
+          <td>Yeh Jupyter Notebook ka shortcut hai. Isse current cell run hota hai aur cursor next cell par chala jata hai.</td>
         </tr>
       </table>
 
@@ -566,7 +574,7 @@ print(result2)</code></pre>
       <p>Ab Module 1-3 concepts ko combine karke ek small project banate hain. Yeh project variables, input, type casting, arithmetic operators, relational operators, logical operators, and output handling cover karega.</p>
       <h3>Project Story</h3>
       <p>Socho school mein teacher ke paas ek student ka naam aur 3 subjects ke marks hain. Teacher ko manually calculator se total, percentage, and pass/fail check karna padta hai. Hum Python se ek small helper program banayenge jo user se marks lega, total calculate karega, percentage nikalega, aur pass/fail result show karega. Yeh project beginner ke liye perfect hai kyunki isme input, variables, type casting, operators, comparison, and output sab ek saath use hote hain.</p>
-      <h3>VS Code Mein Project Kaise Implement Karna Hai</h3>
+      <h3>Jupyter Notebook Mein Project Kaise Implement Karna Hai</h3>
       <table>
         <tr>
           <th>Step</th>
@@ -575,23 +583,28 @@ print(result2)</code></pre>
         </tr>
         <tr>
           <td>1</td>
-          <td>Folder banao: <code>student-marks-calculator</code>.</td>
-          <td>Project ke saare files ek folder mein rahenge. Beginner ko folder organization ki habit yahin se lagti hai.</td>
+          <td>Jupyter Notebook open karo aur new Python 3 notebook banao.</td>
+          <td>Is notebook ko aap <code>Student_Marks_Calculator.ipynb</code> naam se save kar sakte ho. Notebook mein code aur output dono same place par rahenge.</td>
         </tr>
         <tr>
           <td>2</td>
-          <td>File banao: <code>marks_calculator.py</code>.</td>
-          <td>File name meaningful rakha gaya hai taaki dekhte hi samajh aaye ki yeh marks calculator ka program hai.</td>
+          <td>First cell mein heading/comment likho: <code># Student Marks Calculator</code>.</td>
+          <td>Comment learners ko batata hai ki code kis project ke liye hai. Python comment ko execute nahi karta.</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Niche diya gaya project code file mein paste/type karo.</td>
-          <td>Class mein learners ko type karwana better hai, kyunki typing se syntax familiar hoti hai.</td>
+          <td>Second cell mein niche diya gaya project code paste/type karo.</td>
+          <td>Class mein learners ko code type karwana better hai, kyunki typing se syntax, brackets, quotes, and indentation familiar hoti hai.</td>
         </tr>
         <tr>
           <td>4</td>
-          <td>Terminal mein run karo: <code>python marks_calculator.py</code>.</td>
-          <td>Python file execute hogi aur program user se input maangna start karega.</td>
+          <td>Cell run karo using <code>Shift + Enter</code>.</td>
+          <td>Notebook input prompts show karega. Learner values enter karega aur final output same cell ke neeche show hoga.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Alag-alag marks ke saath cell ko dobara run karo.</td>
+          <td>Isse learners ko samajh aayega ki same code different input par different output generate karta hai.</td>
         </tr>
       </table>
       <h4>Project Code</h4>
@@ -662,7 +675,7 @@ print("Welcome to programming")</code></pre>
         </tr>
         <tr>
           <td><code>print</code></td>
-          <td><code>print</code> Python ka built-in function hai. Built-in ka matlab Python ke andar already available hai, hume alag se banana nahi padta. Iska kaam screen/terminal par output show karna hai.</td>
+          <td><code>print</code> Python ka built-in function hai. Built-in ka matlab Python ke andar already available hai, hume alag se banana nahi padta. Jupyter Notebook mein iska kaam output area mein result/message show karna hai.</td>
         </tr>
         <tr>
           <td><code>()</code></td>
