@@ -1,309 +1,424 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Python Programming Module 1 to 3 complete notes in simple Hinglish with practice code and detailed explanations.">
-  <title>Python Programming Module 1-3 Notes</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Module 1-3 Hands-on Practical Training Notes</title>
+<style>
+  :root{
+    --navy:#0f2942;
+    --blue:#1a5f9e;
+    --lightblue:#e8f2fb;
+    --accent:#2b8a3e;
+    --warn-bg:#fff4e5;
+    --warn-border:#e8a33d;
+    --info-bg:#e8f2fb;
+    --info-border:#1a5f9e;
+    --err-bg:#fdeaea;
+    --err-border:#c0392b;
+    --code-bg:#0f2942;
+    --code-text:#e8f2fb;
+    --gray:#555;
+    --line:#d7e2ec;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    color:#20303f;
+    line-height:1.6;
+    background:#fbfcfe;
+    font-size:15.5px;
+  }
+  .page{
+    max-width:980px;
+    margin:0 auto;
+    padding:30px 40px 60px 40px;
+  }
+  .titlepage{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(160deg,var(--navy) 0%,var(--blue) 100%);
+    color:#fff;
+    padding:60px 20px;
+  }
+  .titlepage h1{
+    font-size:42px;
+    margin-bottom:10px;
+    letter-spacing:1px;
+  }
+  .titlepage h2{
+    font-size:20px;
+    font-weight:400;
+    color:#cfe4f7;
+    margin-top:0;
+  }
+  .titlepage .badge{
+    margin-top:40px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.35);
+    padding:14px 26px;
+    border-radius:8px;
+    font-size:14px;
+    line-height:1.8;
+    text-align:left;
+  }
+  .titlepage .footer-note{
+    margin-top:50px;
+    font-size:13px;
+    color:#cfe4f7;
+  }
+  .toc{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:30px 35px;
+    margin:30px 0 50px 0;
+  }
+  .toc h2{margin-top:0;color:var(--navy);}
+  .toc ol{padding-left:20px;}
+  .toc li{margin-bottom:6px;}
+  .toc a{color:var(--blue);text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+  .module-header{
+    background:var(--navy);
+    color:#fff;
+    padding:22px 30px;
+    border-radius:10px;
+    margin:60px 0 25px 0;
+  }
+  .module-header h1{margin:0;font-size:26px;}
+  .module-header p{margin:6px 0 0 0;color:#cfe4f7;font-size:14px;}
+  h2.topic{
+    color:var(--navy);
+    border-bottom:3px solid var(--blue);
+    padding-bottom:6px;
+    margin-top:45px;
+    font-size:21px;
+  }
+  h3.subtopic{
+    color:var(--blue);
+    margin-top:28px;
+    font-size:17px;
+  }
+  h3.practical-title{
+    color:#fff;
+    background:var(--accent);
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:6px;
+    margin-top:20px;
+    font-size:15px;
+  }
+  .box{
+    border-radius:8px;
+    padding:14px 18px;
+    margin:14px 0;
+    font-size:14.5px;
+  }
+  .info{background:var(--info-bg);border-left:5px solid var(--info-border);}
+  .warn{background:var(--warn-bg);border-left:5px solid var(--warn-border);}
+  .error-box{background:var(--err-bg);border-left:5px solid var(--err-border);}
+  .box strong.tag{
+    display:block;
+    text-transform:uppercase;
+    font-size:11.5px;
+    letter-spacing:0.5px;
+    margin-bottom:4px;
+    color:var(--gray);
+  }
+  .info strong.tag{color:var(--info-border);}
+  .warn strong.tag{color:var(--warn-border);}
+  .error-box strong.tag{color:var(--err-border);}
+  .run-loc{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    font-size:12px;
+    padding:3px 10px;
+    border-radius:5px 5px 0 0;
+    font-family:monospace;
+    margin-bottom:-2px;
+  }
+  pre{
+    background:var(--code-bg);
+    color:var(--code-text);
+    padding:16px 18px;
+    border-radius:0 8px 8px 8px;
+    overflow-x:auto;
+    font-size:13.5px;
+    margin:0 0 16px 0;
+    line-height:1.5;
+  }
+  code{font-family:"Consolas","Monaco",monospace;}
+  .inline-code{
+    background:#eef3f8;
+    color:#0f2942;
+    padding:2px 6px;
+    border-radius:4px;
+    font-family:"Consolas",monospace;
+    font-size:13.5px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0;
+    font-size:14px;
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:9px 12px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:var(--navy);
+    color:#fff;
+  }
+  tr:nth-child(even){background:#f4f8fc;}
+  ol.steps li, ul.plain li{margin-bottom:6px;}
+  .summary-box{
+    background:#eef8f0;
+    border:1px solid #bfe3c8;
+    border-left:5px solid var(--accent);
+    padding:16px 20px;
+    border-radius:8px;
+    margin:30px 0 10px 0;
+  }
+  .summary-box strong.tag{color:var(--accent);}
+  hr.sep{
+    border:none;
+    border-top:1px dashed var(--line);
+    margin:35px 0;
+  }
+  @media print{
+    .titlepage{page-break-after:always;}
+    .module-header{page-break-before:always;}
+    pre{white-space:pre-wrap;}
+  }
+</style>
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <p class="tag">Python Programming</p>
-      <h1>Module 1 to 3 - Complete Teaching Notes</h1>
-      <p class="subtitle">Introduction to Python, Python basics and data types, operators and expressions explained in simple Hinglish.</p>
-    </div>
-  </header>
 
-  <main class="wrap">
-    <article class="paper">
-      <h2>How To Use These Notes</h2>
-      <p>Yeh notes beginner learners ke liye banaye gaye hain. Aap class mein pehle topic ka simple meaning explain karo, phir story type real-world example do, phir practice code run karwao, aur last mein har line ka explanation discuss karo. Isse learners code ko ratne ke bajay samajh kar likhenge.</p>
-      <p>Python ko samajhne ke liye ek simple story yaad rakho: Python ek assistant jaisa hai. Aap usko clear instructions doge, woh step-by-step kaam karega. Agar instruction galat hai, toh error dega. Programming ka main kaam hota hai problem ko small steps mein todna aur computer ko clear instruction dena.</p>
+<div class="titlepage">
+  <h1>Python Hands-on Practical Training Notes</h1>
+  <h2>Module 1 to 3: Introduction, Basics, Data Types, Operators and Expressions</h2>
+  <div class="badge">
+    Language: Python<br>
+    Execution Tool: Jupyter Notebook<br>
+    Level: Beginner Friendly<br>
+    Style: Simple Hinglish<br>
+    Focus: Theory + Practical + Line-by-line Explanation<br>
+    Project: Student Marks Calculator
+  </div>
+  <div class="footer-note">Classroom Training Edition | Prepared for easy teaching and revision</div>
+</div>
 
-      <h3>Class Start Karne Ka Simple Flow</h3>
-      <p>Class start karte time learners ko pehle yeh clear karna hai ki Python koi difficult cheez nahi hai. Python ek language hai jisme hum computer ko instructions dete hain. Jaise real life mein agar aap kisi student ko bolte ho "notebook kholo, heading likho, answer solve karo", waise hi Python mein hum computer ko bolte hain "message print karo, number add karo, user se input lo, result show karo".</p>
-      <p>Aap class mein pehle ek plain English problem bolo: "Student ke 3 subject marks lene hain aur total nikalna hai." Phir learners se pucho ki is problem mein steps kya honge. Expected steps: name lena, marks lena, total banana, percentage banana, output show karna. Isi thinking ko programming logic bolte hain. Python sirf us logic ko computer language mein likhne ka tool hai.</p>
+<div class="page">
 
-      <h3>Aaj Ke Notes Se Learners Kya Sikhoge?</h3>
-      <table>
-        <tr>
-          <th>Part</th>
-          <th>What Learner Will Understand</th>
-          <th>Real Classroom Explanation</th>
-        </tr>
-        <tr>
-          <td>Module 1</td>
-          <td>Python kya hai, kaha use hota hai, kaise install/run hota hai.</td>
-          <td>Yeh foundation hai. Learner ko pehle yeh confidence milega ki Python code kaise start hota hai.</td>
-        </tr>
-        <tr>
-          <td>Module 2</td>
-          <td>Variables, data types, input/output, and type casting.</td>
-          <td>Yeh daily programming ka storage system hai. Data ko naam dena aur use karna yahin se start hota hai.</td>
-        </tr>
-        <tr>
-          <td>Module 3</td>
-          <td>Operators and expressions ka use calculation and comparison ke liye.</td>
-          <td>Yeh logic building ka base hai. Calculator, marks system, eligibility check sab operators se bante hain.</td>
-        </tr>
-      </table>
+<div class="toc">
+<h2>Table of Contents</h2>
+<ol>
+  <li><a href="#intro">How to Use These Notes</a></li>
+  <li><a href="#module1">Module 1 - Introduction to Python</a></li>
+  <li><a href="#module2">Module 2 - Python Basics and Data Types</a></li>
+  <li><a href="#module3">Module 3 - Operators and Expressions</a></li>
+  <li><a href="#project">Mini Project - Student Marks Calculator</a></li>
+  <li><a href="#revision">Quick Revision and Common Mistakes</a></li>
+</ol>
+</div>
 
-      <h3>Teacher Script: Learners Ko Kaise Samjhana Hai</h3>
-      <p>Sabse pehle bolo: "Aaj hum Python ko zero se start karenge. Aapko coding yaad nahi karni, bas har line ka reason samajhna hai." Phir ek simple analogy do: variable ko box bolo, data type ko box ke andar rakhi value ka type bolo, operator ko action bolo, aur print ko result dikhane wala speaker bolo.</p>
-      <p>Har code example mein same pattern follow karo: pehle problem statement batao, phir code dikhao, phir expected output dikhao, phir line-by-line explanation karo. Learners ko bolna ki agar output galat aaye toh panic nahi karna, error message bhi learning ka part hota hai.</p>
+<div class="module-header" id="intro">
+  <h1>How to Use These Notes</h1>
+  <p>Goal: Teach Python from zero in a practical, simple, and classroom-friendly way.</p>
+</div>
 
-      <h3>Jupyter Notebook Mein Python Kaise Run Karna Hai</h3>
-      <p>Is class mein hum code Jupyter Notebook par run karenge. Jupyter Notebook beginners ke liye bahut useful hota hai, kyunki isme code aur output ek hi page par dikhte hain. Learner ek cell mein code likhta hai, <code>Shift + Enter</code> press karta hai, aur output usi cell ke neeche show ho jata hai. Isse teacher ko samjhana easy hota hai aur learner ko turant result dikhta hai.</p>
-      <table>
-        <tr>
-          <th>Step</th>
-          <th>Kya Karna Hai?</th>
-          <th>Simple Explanation</th>
-        </tr>
-        <tr>
-          <td>Step 1</td>
-          <td>Anaconda Navigator open karo.</td>
-          <td>Anaconda ek package hai jisme Python ke saath Jupyter Notebook bhi milta hai. Beginners ke liye setup easy ho jata hai.</td>
-        </tr>
-        <tr>
-          <td>Step 2</td>
-          <td>Jupyter Notebook launch karo.</td>
-          <td>Browser mein Jupyter ka dashboard open hoga. Yahi se hum notebook create and open karenge.</td>
-        </tr>
-        <tr>
-          <td>Step 3</td>
-          <td>New &gt; Python 3 notebook select karo.</td>
-          <td>Ek new notebook open hogi jisme cells honge. Har cell mein Python code likh sakte hain.</td>
-        </tr>
-        <tr>
-          <td>Step 4</td>
-          <td>First cell mein code likho: <code>print("Hello Python")</code>.</td>
-          <td>Yeh first instruction hai jo notebook output area mein message show karega.</td>
-        </tr>
-        <tr>
-          <td>Step 5</td>
-          <td>Cell run karne ke liye <code>Shift + Enter</code> press karo.</td>
-          <td>Jupyter us cell ka code execute karega aur output cell ke neeche show karega.</td>
-        </tr>
-        <tr>
-          <td>Step 6</td>
-          <td>Next code ke liye new cell use karo.</td>
-          <td>Har topic ka code separate cell mein rakhne se learners ko output compare karna easy hota hai.</td>
-        </tr>
-      </table>
-      <p><strong>Important:</strong> Jupyter Notebook mein <code>input()</code> wala code bhi run hota hai. Jab cell run hoga, notebook input box show karega. User value type karega aur Enter press karega, phir next line execute hogi.</p>
+<h2 class="topic">Class Teaching Flow</h2>
+<p>Yeh notes is tarah banaye gaye hain ki aap learners ko directly padhakar samjha sako. Har topic mein pehle simple theory hai, phir real-world example hai, phir Jupyter Notebook practical hai, phir expected output hai, aur last mein code ka har important part line-by-line explain kiya gaya hai.</p>
+<p>Class start karte time learners ko yeh bolo: Python ek language hai jisme hum computer ko instructions dete hain. Jaise aap kisi student ko bolte ho "notebook kholo, heading likho, answer solve karo", waise Python mein hum computer ko bolte hain "message print karo, input lo, calculation karo, result show karo".</p>
 
-      <h3>Basic Run Guide</h3>
-      <table>
-        <tr>
-          <th>Method</th>
-          <th>Kaise Run Karna Hai?</th>
-          <th>Use Kab Karna Hai?</th>
-        </tr>
-        <tr>
-          <td>Jupyter Cell</td>
-          <td>Notebook cell mein code likho aur <code>Shift + Enter</code> press karo.</td>
-          <td>Classroom practice ke liye best, kyunki code aur output ek saath visible hota hai.</td>
-        </tr>
-        <tr>
-          <td>Multiple Cells</td>
-          <td>Har topic ka code alag cell mein run karo.</td>
-          <td>Variables, data types, operators ko step-by-step samjhane ke liye useful.</td>
-        </tr>
-        <tr>
-          <td>Input Code</td>
-          <td><code>input()</code> run hone par notebook mein input box aayega.</td>
-          <td>User input programs, calculator, marks project ke liye useful.</td>
-        </tr>
-      </table>
+<div class="box info">
+<strong class="tag">Teacher Note</strong>
+Har code example ko Jupyter Notebook ke separate cell mein run karwao. Ek cell mein ek small concept rakho. Isse learners ko output immediately dikhega aur confusion kam hoga.
+</div>
 
-      <h2>Module 1: Introduction To Python</h2>
-      <p>Module 1 mein hum Python ka basic introduction samjhenge. Python kya hai, kyu popular hai, real world mein kaha use hota hai, kaise install karte hain, aur Python script/interpreter kaise run karte hain. Yeh foundation class hai, isliye yahan learners ko programming ka dar hatana important hai.</p>
+<h2 class="topic">Jupyter Notebook Setup and Running Code</h2>
+<p>Hum code Jupyter Notebook par run karenge. Jupyter Notebook beginners ke liye easy hota hai kyunki code aur output ek hi page par visible hote hain. Learner cell mein code likhta hai, <span class="inline-code">Shift + Enter</span> press karta hai, aur output same cell ke neeche show ho jata hai.</p>
 
-      <h3>1. What Is Python?</h3>
-      <p>Python ek high-level programming language hai. High-level ka matlab hai iski syntax human language ke close hoti hai, isliye beginners ke liye easy hoti hai. Python mein code readable hota hai, jaise English instructions. Example: <code>print("Hello")</code> clearly batata hai ki screen par Hello print karna hai.</p>
-      <p>Story example: Socho aap ek assistant ko bol rahe ho, "Mera naam print karo", "Do numbers add karo", "File read karo". Python wahi assistant hai jo aapki instructions ko computer ke liye executable form mein run karta hai.</p>
-
-      <h4>Practice Code: First Python Program</h4>
-      <pre><code>print("Hello Python")
-print("Welcome to programming")</code></pre>
-      <h4>Expected Output</h4>
-      <pre><code>Hello Python
-Welcome to programming</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>print("Hello Python")</code></td>
-          <td><code>print()</code> Python ka built-in function hai jo screen par output show karta hai. Double quotes ke andar text hai, isliye yeh string value hai.</td>
-        </tr>
-        <tr>
-          <td><code>print("Welcome to programming")</code></td>
-          <td>Yeh second line screen par ek aur message print karegi. Python line by line execute karta hai, pehle first print, phir second print.</td>
-        </tr>
-      </table>
-
-      <h3>2. Python Key Features</h3>
-      <p>Python popular hai kyunki uski syntax simple hai, libraries powerful hain, aur use cases bahut wide hain. Python web development, automation, data science, AI, machine learning, scripting, testing, and DevOps mein use hota hai. Beginners ke liye Python best hai kyunki code readable hota hai aur output quickly milta hai.</p>
-      <table>
-        <tr>
-          <th>Feature</th>
-          <th>Simple Meaning</th>
-          <th>Example</th>
-        </tr>
-        <tr>
-          <td>Easy Syntax</td>
-          <td>Code English jaisa readable hota hai.</td>
-          <td><code>print("Hi")</code></td>
-        </tr>
-        <tr>
-          <td>Interpreted</td>
-          <td>Python code line by line run hota hai.</td>
-          <td>Error line par immediately feedback milta hai.</td>
-        </tr>
-        <tr>
-          <td>Large Libraries</td>
-          <td>Ready-made tools available hain.</td>
-          <td>NumPy, Pandas, Flask, Django.</td>
-        </tr>
-        <tr>
-          <td>Cross Platform</td>
-          <td>Windows, Mac, Linux par run hota hai.</td>
-          <td>Same script multiple systems par chal sakti hai.</td>
-        </tr>
-      </table>
-
-      <h3>3. Real-World Use Cases</h3>
-      <p>Python ka use sirf classroom examples ke liye nahi hota. Real companies Python ko automation, websites, APIs, AI models, data analysis, and backend systems mein use karti hain. Agar aapko repetitive task automate karna hai, Excel data analyze karna hai, website backend banana hai, ya AI model train karna hai, Python useful hai.</p>
-      <table>
-        <tr>
-          <th>Use Case</th>
-          <th>Real Example</th>
-          <th>Python Ka Role</th>
-        </tr>
-        <tr>
-          <td>Automation</td>
-          <td>100 files rename karna.</td>
-          <td>Python script loop se files rename kar sakti hai.</td>
-        </tr>
-        <tr>
-          <td>Data Analysis</td>
-          <td>Sales report analyze karna.</td>
-          <td>Pandas se data clean and summarize hota hai.</td>
-        </tr>
-        <tr>
-          <td>Web Development</td>
-          <td>Student portal backend.</td>
-          <td>Flask/Django se backend and APIs bante hain.</td>
-        </tr>
-        <tr>
-          <td>AI/ML</td>
-          <td>Customer churn prediction.</td>
-          <td>Machine learning models Python se train hote hain.</td>
-        </tr>
-      </table>
-
-      <h3>4. Installation: Python + Anaconda</h3>
-      <p>Is class ke liye Anaconda install karna best rahega, kyunki Anaconda ke saath Jupyter Notebook ready milta hai. Jupyter Notebook mein learners code, output, notes, and explanation ek hi page par dekh sakte hain. Isliye beginner class ke liye yeh simple and visual approach hai.</p>
-      <p>Aap learners ko bata sakte ho ki Python engine ki tarah hai aur Jupyter Notebook us engine ko use karne ka friendly dashboard hai. Learner cell mein code likhta hai, run karta hai, aur output instantly neeche dekh leta hai.</p>
-      <h4>Check Setup In Jupyter Notebook</h4>
-      <pre><code>print("Python is working")
+<h3 class="practical-title">Practical 0: First Notebook Cell</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>print("Python is working")
 2 + 3</code></pre>
-      <table>
-        <tr>
-          <th>Cell Code</th>
-          <th>Explanation</th>
-        </tr>
-        <tr>
-          <td><code>print("Python is working")</code></td>
-          <td>Is line se check hota hai ki Jupyter Notebook Python code execute kar raha hai. Output area mein message show hoga.</td>
-        </tr>
-        <tr>
-          <td><code>2 + 3</code></td>
-          <td>Notebook last expression ka output direct show kar sakta hai. Output <code>5</code> aayega.</td>
-        </tr>
-      </table>
 
-      <h3>5. Jupyter Notebook Cell Basics</h3>
-      <p>Jupyter Notebook mein code small blocks mein likha jata hai, jinko cells bolte hain. Har cell independent practice ke liye use ho sakta hai. Aap ek cell mein introduction code run kara sakte ho, next cell mein variables, next cell mein operators. Isse learners ko har topic ka output separate and clear dikhta hai.</p>
-      <h4>Practice Code: First Notebook Cell</h4>
-      <pre><code>print("This code is running inside Jupyter Notebook")
-print(10 + 20)</code></pre>
-      <h4>How To Run</h4>
-      <pre><code>Cell select karo
-Shift + Enter press karo
-Output cell ke neeche dekho</code></pre>
-      <table>
-        <tr>
-          <th>Line / Action</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>print("This code is running inside Jupyter Notebook")</code></td>
-          <td>Yeh line notebook ke output area mein message show karegi. Isse learner ko confirm hota hai ki cell successfully run hua.</td>
-        </tr>
-        <tr>
-          <td><code>print(10 + 20)</code></td>
-          <td>Python pehle addition karega: 10 + 20 = 30, phir 30 print karega.</td>
-        </tr>
-        <tr>
-          <td><code>Shift + Enter</code></td>
-          <td>Yeh Jupyter Notebook ka shortcut hai. Isse current cell run hota hai aur cursor next cell par chala jata hai.</td>
-        </tr>
-      </table>
+<h4>Step-by-step explanation</h4>
+<table>
+<tr><th>Code / Action</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">print("Python is working")</td><td><span class="inline-code">print()</span> Python ka built-in function hai. Iska kaam output area mein message show karna hai. Double quotes ke andar text hai, isliye yeh string hai.</td></tr>
+<tr><td class="inline-code">2 + 3</td><td>Jupyter Notebook last expression ka result directly show kar sakta hai. Yahan Python addition karega aur output <span class="inline-code">5</span> dikhayega.</td></tr>
+<tr><td class="inline-code">Shift + Enter</td><td>Current cell ko run karta hai. Agar cell ke neeche output aata hai, iska matlab Python setup working hai.</td></tr>
+</table>
 
-      <h2>Module 2: Python Basics & Data Types</h2>
-      <p>Module 2 mein hum variables, naming rules, data types, type casting, and input/output handling samjhenge. Yeh Python programming ka daily-use foundation hai. Jab bhi program user ka data store karega, calculation karega, input lega, ya output show karega, yeh concepts use honge.</p>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+Python is working<br>
+5
+</div>
 
-      <h3>1. Variables & Naming Rules</h3>
-      <p>Variable ek box jaisa hota hai jisme value store hoti hai. Example: student ka naam store karna hai toh <code>name</code> variable bana sakte hain. Marks store karne hain toh <code>marks</code> variable bana sakte hain. Variable names meaningful hone chahiye, taaki code padhkar samajh aaye ki value kis cheez ki hai.</p>
-      <h4>Naming Rules</h4>
-      <ul>
-        <li>Variable name letter ya underscore se start ho sakta hai.</li>
-        <li>Number se start nahi ho sakta.</li>
-        <li>Spaces allowed nahi hain.</li>
-        <li>Python keywords use nahi karne chahiye, jaise <code>if</code>, <code>for</code>, <code>while</code>.</li>
-        <li>Names case-sensitive hote hain: <code>Name</code> and <code>name</code> different hain.</li>
-      </ul>
-      <h4>Practice Code: Variables</h4>
-      <pre><code>student_name = "Aman"
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Learners ko bolo ki Jupyter Notebook ek copy jaisa hai jisme hum code bhi likhte hain aur uska answer bhi wahi dekhte hain. Pehli line mein humne <span class="inline-code">print()</span> use kiya, isliye message output mein aaya. Dusri line mein sirf <span class="inline-code">2 + 3</span> likha hai. Jupyter Notebook last expression ka answer khud show kar deta hai. Yahan se students ko clear ho jana chahiye ki Python calculator ki tarah calculation bhi kar sakta hai aur message bhi print kar sakta hai.
+</div>
+
+<hr class="sep">
+
+<div class="module-header" id="module1">
+  <h1>Module 1: Introduction to Python</h1>
+  <p>Goal: Understand what Python is, why it is used, and how beginners can start writing Python code.</p>
+</div>
+
+<h2 class="topic">1.1 What is Python?</h2>
+<p>Python ek high-level programming language hai. High-level ka matlab hai ki iski syntax human language ke close hoti hai. Beginner ke liye Python easy isliye hota hai kyunki iska code simple and readable hota hai. Example: <span class="inline-code">print("Hello")</span> dekhkar easily samajh aa jata hai ki program screen par Hello show karega.</p>
+<p>Python ko programming ki duniya mein isliye pasand kiya jata hai kyunki yeh beginner friendly bhi hai aur professional projects ke liye powerful bhi hai. Ek beginner simple calculator bana sakta hai, aur ek company same Python se AI model, automation script, website backend, ya data analysis tool bana sakti hai.</p>
+
+<div class="box info">
+<strong class="tag">Real-world meaning</strong>
+Python ko aap ek smart assistant samjho. Aap assistant ko clear instruction doge, woh step-by-step kaam karega. Agar instruction galat doge, woh error dega. Programming ka main kaam hota hai problem ko small steps mein todkar computer ko clear instruction dena.
+</div>
+
+<h3 class="practical-title">Practical 1: First Python Output</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>print("Hello Python")
+print("Welcome to programming")</code></pre>
+
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+Hello Python<br>
+Welcome to programming
+</div>
+
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">print("Hello Python")</td><td><span class="inline-code">print</span> Python ka built-in function hai. Function ka matlab ready-made kaam. Brackets <span class="inline-code">()</span> ke andar jo value dete hain, woh output area mein show hoti hai. <span class="inline-code">"Hello Python"</span> quotes ke andar hai, isliye yeh text/string hai.</td></tr>
+<tr><td class="inline-code">print("Welcome to programming")</td><td>Python code upar se niche run hota hai. Pehle first line execute hogi, phir second line. Is line se second message output mein show hota hai.</td></tr>
+</table>
+
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Is practical ko samjhate time learners ko bolo ki program ek recipe ki tarah hota hai. Recipe mein steps order mein follow hote hain. Python bhi same tarah pehle line 1 run karta hai, phir line 2. Agar hum line 2 ko upar kar denge, toh output ka order bhi change ho jayega. Isliye code ka order important hota hai.
+</div>
+
+<h2 class="topic">1.2 Python Key Features</h2>
+<p>Python popular hai kyunki yeh easy, readable, powerful, and multi-purpose language hai. Iska use automation, web development, data science, AI, machine learning, scripting, testing, and DevOps mein hota hai.</p>
+<p>Simple words mein, Python ek aisi language hai jo beginner ko jaldi output dikhati hai. Jab learner pehli baar code likhta hai aur turant output dekh leta hai, toh confidence build hota hai. Isi wajah se Python schools, colleges, data science, DevOps, automation, and AI training mein bahut use hoti hai.</p>
+<table>
+<tr><th>Feature</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Easy Syntax</td><td>Code English jaisa readable hota hai.</td><td><span class="inline-code">print("Hi")</span></td></tr>
+<tr><td>Interpreted</td><td>Python code step-by-step run hota hai.</td><td>Error line par feedback milta hai.</td></tr>
+<tr><td>Large Libraries</td><td>Ready-made tools available hote hain.</td><td>Pandas, Flask, NumPy, Django.</td></tr>
+<tr><td>Cross Platform</td><td>Windows, Mac, Linux par run hota hai.</td><td>Same Python logic multiple systems par use ho sakta hai.</td></tr>
+</table>
+
+<h2 class="topic">1.3 Real-world Use Cases of Python</h2>
+<p>Python sirf classroom language nahi hai. Companies Python ka use daily work automate karne, reports banane, websites banane, APIs create karne, data analyze karne, and AI models train karne ke liye karti hain.</p>
+<p>Class mein learners ko yeh point zaroor explain karo ki Python ka purpose sirf syntax seekhna nahi hai. Real goal hai problem solve karna. Agar ek office employee daily Excel report manually banata hai, Python us report ko automate kar sakta hai. Agar ek website ko user login system chahiye, Python backend mein help kar sakta hai. Agar company ko customer behavior predict karna hai, Python machine learning mein help karta hai.</p>
+<table>
+<tr><th>Use Case</th><th>Real Example</th><th>Python Ka Role</th></tr>
+<tr><td>Automation</td><td>100 files rename karna.</td><td>Python loop se files automatically rename kar sakta hai.</td></tr>
+<tr><td>Data Analysis</td><td>Sales report analyze karna.</td><td>Pandas se data clean and summarize hota hai.</td></tr>
+<tr><td>Web Development</td><td>Student portal backend.</td><td>Flask/Django se backend and APIs bante hain.</td></tr>
+<tr><td>AI/ML</td><td>Customer churn prediction.</td><td>Python se machine learning models train hote hain.</td></tr>
+</table>
+
+<h2 class="topic">1.4 Installation: Python and Anaconda</h2>
+<p>Is class ke liye Anaconda best hai kyunki Anaconda ke saath Python, Jupyter Notebook, and useful packages ready milte hain. Learners ko alag-alag setup mein time waste nahi karna padta. Jupyter Notebook ka benefit yeh hai ki code and output ek hi jagah dikhte hain.</p>
+<p>Anaconda ko aap ek complete Python classroom kit samjho. Isme Python engine bhi hota hai, Jupyter Notebook bhi hota hai, aur data science ke liye useful libraries bhi hoti hain. Beginner ke liye yeh easy hai kyunki learner ko command line setup mein zyada time nahi lagta. Anaconda Navigator open karo, Jupyter Notebook launch karo, aur code practice start karo.</p>
+
+<div class="box warn">
+<strong class="tag">Important</strong>
+Agar learner ke system mein Anaconda install hai, toh Jupyter Notebook launch karke direct Python practice start kar sakte hain. Agar Jupyter open nahi hota, toh Anaconda Navigator restart karo ya internet/setup check karo.
+</div>
+
+<div class="summary-box">
+<strong class="tag">Module 1 Summary</strong>
+Python ek beginner-friendly programming language hai. Iska use real-world automation, web, data science, and AI mein hota hai. Is course mein hum Python code Jupyter Notebook cells mein run karenge.
+</div>
+
+<hr class="sep">
+
+<div class="module-header" id="module2">
+  <h1>Module 2: Python Basics and Data Types</h1>
+  <p>Goal: Learn variables, naming rules, data types, type casting, input and output handling.</p>
+</div>
+
+<h2 class="topic">2.1 Variables in Python</h2>
+<p>Variable ek labelled box jaisa hota hai jisme value store hoti hai. Agar student ka naam store karna hai, toh <span class="inline-code">student_name</span> variable bana sakte hain. Agar age store karni hai, toh <span class="inline-code">age</span> variable use kar sakte hain.</p>
+<p>Variable ko samjhane ka easiest tarika hai box example. Socho aapke paas ek box hai jiske upar label laga hai <span class="inline-code">student_name</span>. Us box ke andar value <span class="inline-code">Aman</span> rakhi hai. Jab bhi program mein <span class="inline-code">student_name</span> likhenge, Python us box ke andar ki value use karega.</p>
+
+<div class="box info">
+<strong class="tag">Real-world example</strong>
+School register mein columns hote hain: Name, Roll Number, Marks. Python mein variables bhi waise hi data ko naam dete hain. Naam meaningful hoga toh code padhne mein easy hoga.
+</div>
+
+<h3 class="practical-title">Practical 2: Variables</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>student_name = "Aman"
 age = 21
 marks = 88.5
 
 print(student_name)
 print(age)
 print(marks)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>student_name = "Aman"</code></td>
-          <td><code>student_name</code> variable mein text value store hui. Quotes ke andar value string hoti hai.</td>
-        </tr>
-        <tr>
-          <td><code>age = 21</code></td>
-          <td><code>age</code> variable mein integer number store hua. Quotes nahi hain, isliye calculation possible hai.</td>
-        </tr>
-        <tr>
-          <td><code>marks = 88.5</code></td>
-          <td><code>marks</code> variable mein decimal number store hua. Decimal number ko float bolte hain.</td>
-        </tr>
-        <tr>
-          <td><code>print(...)</code></td>
-          <td>Variable ki value screen par show karta hai.</td>
-        </tr>
-      </table>
 
-      <h3>2. Data Types: int, float, str, bool</h3>
-      <p>Data type batata hai ki value kis nature ki hai. Python automatically data type identify karta hai. Agar value number hai toh int/float, agar text hai toh str, agar true/false hai toh bool. Data type samajhna zaroori hai kyunki har type ka behavior alag hota hai.</p>
-      <h4>Practice Code: Data Types</h4>
-      <pre><code>roll_no = 101
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+Aman<br>
+21<br>
+88.5
+</div>
+
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">student_name = "Aman"</td><td><span class="inline-code">student_name</span> variable ka naam hai. <span class="inline-code">=</span> assignment operator hai, iska matlab right side value ko left side variable mein store karo. <span class="inline-code">"Aman"</span> string value hai kyunki quotes ke andar hai.</td></tr>
+<tr><td class="inline-code">age = 21</td><td><span class="inline-code">age</span> variable mein integer value <span class="inline-code">21</span> store hui. Quotes nahi hain, isliye yeh number hai aur calculation mein use ho sakta hai.</td></tr>
+<tr><td class="inline-code">marks = 88.5</td><td><span class="inline-code">marks</span> variable mein decimal value store hui. Decimal number ko Python mein float bolte hain.</td></tr>
+<tr><td>Blank line</td><td>Blank line code ko readable banati hai. Python blank line ko ignore karta hai.</td></tr>
+<tr><td class="inline-code">print(student_name)</td><td>Yahan quotes nahi hain, isliye Python <span class="inline-code">student_name</span> ko variable samjhega aur uski stored value <span class="inline-code">Aman</span> print karega.</td></tr>
+<tr><td class="inline-code">print(age)</td><td><span class="inline-code">age</span> variable ki value output area mein show hogi.</td></tr>
+<tr><td class="inline-code">print(marks)</td><td><span class="inline-code">marks</span> variable ki decimal value output mein show hogi.</td></tr>
+</table>
+
+<div class="box info">
+<strong class="tag">Output Ko Kaise Samjhana Hai</strong>
+Output mein pehle <span class="inline-code">Aman</span>, phir <span class="inline-code">21</span>, phir <span class="inline-code">88.5</span> aata hai. Yeh order isi liye hai kyunki print statements bhi isi order mein likhe gaye hain. Learners ko yeh batana important hai ki variable print karne par variable ka naam nahi, uske andar stored value output mein aati hai.
+</div>
+
+<h2 class="topic">2.2 Naming Rules</h2>
+<p>Variable names meaningful and valid hone chahiye. Python kuch naming rules follow karta hai. Agar rule break hoga toh syntax error aa sakta hai.</p>
+<p>Variable naming ko class register ke column names jaisa samjho. Agar column ka naam clear hai, jaise "Student Name", toh data samajhna easy hota hai. Agar column ka naam random hai, jaise "x1", toh confusion hota hai. Isi tarah code mein <span class="inline-code">student_name</span> better hai, <span class="inline-code">x</span> confusing ho sakta hai.</p>
+<table>
+<tr><th>Rule</th><th>Correct Example</th><th>Wrong Example</th></tr>
+<tr><td>Letter ya underscore se start karo</td><td><span class="inline-code">student_name</span></td><td><span class="inline-code">1student</span></td></tr>
+<tr><td>Spaces allowed nahi</td><td><span class="inline-code">total_marks</span></td><td><span class="inline-code">total marks</span></td></tr>
+<tr><td>Keywords avoid karo</td><td><span class="inline-code">student_class</span></td><td><span class="inline-code">class</span></td></tr>
+<tr><td>Case-sensitive hota hai</td><td><span class="inline-code">name</span> and <span class="inline-code">Name</span> different hain</td><td>Same samajhna wrong hai</td></tr>
+</table>
+
+<h2 class="topic">2.3 Data Types: int, float, str, bool</h2>
+<p>Data type batata hai ki value kis type ki hai. Python automatically identify karta hai ki value number hai, decimal hai, text hai, ya true/false value hai.</p>
+<p>Data type isliye important hai kyunki har type ka behavior alag hota hai. Number par calculation hoti hai, text par joining/searching hoti hai, boolean decision making mein use hota hai. Agar learner string aur number ka difference nahi samjhega, toh input wale programs mein error aayega.</p>
+
+<h3 class="practical-title">Practical 3: Data Types</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>roll_no = 101
 percentage = 87.5
 name = "Riya"
 is_passed = True
@@ -312,101 +427,123 @@ print(type(roll_no))
 print(type(percentage))
 print(type(name))
 print(type(is_passed))</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>roll_no = 101</code></td>
-          <td>Integer value hai, yani whole number. Output type: <code>&lt;class 'int'&gt;</code>.</td>
-        </tr>
-        <tr>
-          <td><code>percentage = 87.5</code></td>
-          <td>Decimal number hai, isliye float type hai.</td>
-        </tr>
-        <tr>
-          <td><code>name = "Riya"</code></td>
-          <td>Quotes ke andar text hai, isliye string type hai.</td>
-        </tr>
-        <tr>
-          <td><code>is_passed = True</code></td>
-          <td>Boolean value hai. True/False decision making mein use hoti hai.</td>
-        </tr>
-        <tr>
-          <td><code>type(...)</code></td>
-          <td>Variable ka data type check karta hai.</td>
-        </tr>
-      </table>
 
-      <h3>3. Type Casting</h3>
-      <p>Type casting ka matlab ek data type ko doosre data type mein convert karna. Example: user se input hamesha string form mein aata hai. Agar input ko calculation mein use karna hai, toh usko <code>int()</code> ya <code>float()</code> se number mein convert karna padta hai.</p>
-      <h4>Practice Code: Type Casting</h4>
-      <pre><code>num1 = "10"
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">roll_no = 101</td><td>Whole number hai, isliye Python isko <span class="inline-code">int</span> type maanega. Roll number, age, count jaise values mostly integer hoti hain.</td></tr>
+<tr><td class="inline-code">percentage = 87.5</td><td>Decimal number hai, isliye Python isko <span class="inline-code">float</span> type maanega. Percentage, price, weight jaise values float ho sakti hain.</td></tr>
+<tr><td class="inline-code">name = "Riya"</td><td>Text quotes ke andar hai, isliye yeh <span class="inline-code">str</span> yani string hai.</td></tr>
+<tr><td class="inline-code">is_passed = True</td><td><span class="inline-code">True</span> boolean value hai. Boolean ka use decisions mein hota hai, jaise pass/fail, login yes/no.</td></tr>
+<tr><td class="inline-code">type(roll_no)</td><td><span class="inline-code">type()</span> function variable ka data type check karta hai.</td></tr>
+<tr><td class="inline-code">print(type(...))</td><td>Pehle <span class="inline-code">type()</span> result nikalega, phir <span class="inline-code">print()</span> us result ko output area mein show karega.</td></tr>
+</table>
+
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+&lt;class 'int'&gt;<br>
+&lt;class 'float'&gt;<br>
+&lt;class 'str'&gt;<br>
+&lt;class 'bool'&gt;
+</div>
+
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Learners ko bolo ki <span class="inline-code">type()</span> ek checking tool hai. Jaise shopkeeper item dekhkar bolta hai yeh book hai, yeh pen hai, yeh notebook hai, waise Python <span class="inline-code">type()</span> se batata hai yeh integer hai, yeh float hai, yeh string hai, yeh boolean hai.
+</div>
+
+<h2 class="topic">2.4 Type Casting</h2>
+<p>Type casting ka matlab ek data type ko doosre data type mein convert karna. Jupyter Notebook ya Python mein <span class="inline-code">input()</span> hamesha string return karta hai. Agar input ko calculation mein use karna hai, toh usko <span class="inline-code">int()</span> ya <span class="inline-code">float()</span> se number mein convert karna padta hai.</p>
+<p>Type casting ko real life example se samjho: agar number paper par text form mein likha hai, jaise "10", toh computer use text samjhega. Calculation karne ke liye Python ko batana padta hai ki is text ko number samjho. Yeh kaam <span class="inline-code">int()</span> ya <span class="inline-code">float()</span> karta hai.</p>
+
+<h3 class="practical-title">Practical 4: Type Casting</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>num1 = "10"
 num2 = "20"
 
 total = int(num1) + int(num2)
 
 print(total)</code></pre>
-      <h4>Expected Output</h4>
-      <pre><code>30</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>num1 = "10"</code></td>
-          <td>Yeh string hai, number nahi, kyunki quotes ke andar hai.</td>
-        </tr>
-        <tr>
-          <td><code>int(num1)</code></td>
-          <td>String <code>"10"</code> ko integer <code>10</code> mein convert karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>total = int(num1) + int(num2)</code></td>
-          <td>Dono string values ko number mein convert karke addition hota hai.</td>
-        </tr>
-      </table>
 
-      <h3>4. Input / Output Handling</h3>
-      <p>Input ka matlab user se data lena. Output ka matlab user ko result dikhana. Python mein <code>input()</code> user se data leta hai, aur <code>print()</code> output show karta hai. Important point: <code>input()</code> hamesha string return karta hai.</p>
-      <h4>Practice Code: User Input</h4>
-      <pre><code>name = input("Enter your name: ")
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+30
+</div>
+
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">num1 = "10"</td><td>Dekhne mein 10 number jaisa lag raha hai, lekin quotes ke andar hai. Isliye Python ke liye yeh string hai.</td></tr>
+<tr><td class="inline-code">num2 = "20"</td><td>Yeh bhi string hai. Agar direct add karenge toh string join ho sakti hai, mathematical addition nahi.</td></tr>
+<tr><td>Blank line</td><td>Readability ke liye gap diya gaya hai.</td></tr>
+<tr><td class="inline-code">int(num1)</td><td>String <span class="inline-code">"10"</span> ko integer <span class="inline-code">10</span> mein convert karta hai.</td></tr>
+<tr><td class="inline-code">int(num2)</td><td>String <span class="inline-code">"20"</span> ko integer <span class="inline-code">20</span> mein convert karta hai.</td></tr>
+<tr><td class="inline-code">total = int(num1) + int(num2)</td><td>Dono values conversion ke baad add hoti hain. Result <span class="inline-code">30</span> variable <span class="inline-code">total</span> mein store hota hai.</td></tr>
+<tr><td class="inline-code">print(total)</td><td>Final result output area mein show karta hai.</td></tr>
+</table>
+
+<div class="box warn">
+<strong class="tag">Important Teaching Point</strong>
+Agar <span class="inline-code">int()</span> use nahi karenge aur direct <span class="inline-code">num1 + num2</span> karenge, toh Python strings ko join karega. Output <span class="inline-code">1020</span> aa sakta hai. Lekin <span class="inline-code">int(num1) + int(num2)</span> karne par real addition hota hai aur output <span class="inline-code">30</span> aata hai.
+</div>
+
+<h2 class="topic">2.5 Input and Output Handling</h2>
+<p>Input ka matlab user se value lena. Output ka matlab result show karna. Python mein <span class="inline-code">input()</span> user se data leta hai aur <span class="inline-code">print()</span> result dikhata hai. Jupyter Notebook mein input box cell ke neeche show hota hai.</p>
+<p>Input/output programs interactive hote hain. Pehle tak hum fixed values code mein likh rahe the, lekin <span class="inline-code">input()</span> se user apni value de sakta hai. Isse same program different users ke liye different output generate kar sakta hai.</p>
+
+<h3 class="practical-title">Practical 5: User Input</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>name = input("Enter your name: ")
 age = int(input("Enter your age: "))
 
 print("Hello", name)
 print("Next year your age will be", age + 1)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>input("Enter your name: ")</code></td>
-          <td>User se name input leta hai. Prompt message screen par show hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>int(input("Enter your age: "))</code></td>
-          <td>User age text form mein enter karega. <code>int()</code> us text ko number mein convert karega.</td>
-        </tr>
-        <tr>
-          <td><code>print("Hello", name)</code></td>
-          <td>String and variable ko comma se print karta hai. Python automatically space add karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>age + 1</code></td>
-          <td>Age number hai, isliye calculation possible hai. Next year age calculate hoti hai.</td>
-        </tr>
-      </table>
 
-      <h2>Module 3: Operators & Expressions</h2>
-      <p>Operators symbols hote hain jo values par operation perform karte hain. Example: <code>+</code> addition karta hai, <code>&gt;</code> comparison karta hai, <code>and</code> logical conditions combine karta hai. Expression ka matlab values, variables, and operators ka combination hota hai jo final result produce karta hai.</p>
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">name = input("Enter your name: ")</td><td><span class="inline-code">input()</span> user se name maangta hai. Prompt message notebook mein show hota hai. User jo type karega, woh <span class="inline-code">name</span> variable mein store hoga.</td></tr>
+<tr><td class="inline-code">age = int(input("Enter your age: "))</td><td>Age input pehle string form mein aata hai. <span class="inline-code">int()</span> usko number mein convert karta hai, taaki calculation ho sake.</td></tr>
+<tr><td>Blank line</td><td>Input section aur output section ko separate dikhane ke liye blank line use hui.</td></tr>
+<tr><td class="inline-code">print("Hello", name)</td><td>Fixed text <span class="inline-code">"Hello"</span> aur variable <span class="inline-code">name</span> saath print hote hain. Comma automatic space add karta hai.</td></tr>
+<tr><td class="inline-code">print("Next year your age will be", age + 1)</td><td><span class="inline-code">age + 1</span> next year ki age calculate karta hai. Since age integer hai, calculation possible hai.</td></tr>
+</table>
 
-      <h3>1. Arithmetic Operators</h3>
-      <p>Arithmetic operators maths operations ke liye use hote hain: addition, subtraction, multiplication, division, remainder, power, and floor division.</p>
-      <h4>Practice Code</h4>
-      <pre><code>a = 10
+<h4>Sample Run</h4>
+<div class="box info">
+<strong class="tag">Sample Input and Output</strong>
+Enter your name: Rahul<br>
+Enter your age: 20<br><br>
+Hello Rahul<br>
+Next year your age will be 21
+</div>
+
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Learners ko bolo ki yeh program user se baat kar raha hai. Pehle naam puchta hai, phir age puchta hai. Age ko number mein convert karta hai, kyunki next year age calculate karni hai. Agar age string rahegi toh <span class="inline-code">age + 1</span> calculation possible nahi hogi.
+</div>
+
+<div class="summary-box">
+<strong class="tag">Module 2 Summary</strong>
+Variables data store karte hain. Data types value ka nature batate hain. Type casting string input ko number mein convert karne ke liye use hoti hai. <span class="inline-code">input()</span> user se data leta hai and <span class="inline-code">print()</span> output show karta hai.
+</div>
+
+<hr class="sep">
+
+<div class="module-header" id="module3">
+  <h1>Module 3: Operators and Expressions</h1>
+  <p>Goal: Learn how Python performs calculations, comparisons, logic checks, and expression evaluation.</p>
+</div>
+
+<h2 class="topic">3.1 Arithmetic Operators</h2>
+<p>Arithmetic operators maths operations ke liye use hote hain. Addition, subtraction, multiplication, division, remainder, power and floor division sab arithmetic operators se hote hain.</p>
+<p>Arithmetic operators ko calculator example se samjhao. Jab learner calculator mein <span class="inline-code">10 + 3</span> karta hai, Python bhi wahi kaam code ke through karta hai. Difference bas itna hai ki Python mein result ko variable mein store bhi kar sakte hain aur baad mein use bhi kar sakte hain.</p>
+
+<h3 class="practical-title">Practical 6: Arithmetic Operators</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>a = 10
 b = 3
 
 print(a + b)
@@ -416,199 +553,199 @@ print(a / b)
 print(a % b)
 print(a ** b)
 print(a // b)</code></pre>
-      <table>
-        <tr>
-          <th>Operator</th>
-          <th>Meaning</th>
-          <th>Example Output</th>
-        </tr>
-        <tr>
-          <td><code>+</code></td>
-          <td>Addition</td>
-          <td>13</td>
-        </tr>
-        <tr>
-          <td><code>-</code></td>
-          <td>Subtraction</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td><code>*</code></td>
-          <td>Multiplication</td>
-          <td>30</td>
-        </tr>
-        <tr>
-          <td><code>/</code></td>
-          <td>Division</td>
-          <td>3.333...</td>
-        </tr>
-        <tr>
-          <td><code>%</code></td>
-          <td>Remainder</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td><code>**</code></td>
-          <td>Power</td>
-          <td>1000</td>
-        </tr>
-        <tr>
-          <td><code>//</code></td>
-          <td>Floor division</td>
-          <td>3</td>
-        </tr>
-      </table>
 
-      <h3>2. Relational Operators</h3>
-      <p>Relational operators comparison ke liye use hote hain. Inka output hamesha boolean hota hai: <code>True</code> ya <code>False</code>. Example: marks passing marks se zyada hain ya nahi.</p>
-      <h4>Practice Code</h4>
-      <pre><code>marks = 75
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">a = 10</td><td><span class="inline-code">a</span> variable mein 10 store hua. Yeh first number hai.</td></tr>
+<tr><td class="inline-code">b = 3</td><td><span class="inline-code">b</span> variable mein 3 store hua. Yeh second number hai.</td></tr>
+<tr><td class="inline-code">print(a + b)</td><td><span class="inline-code">+</span> addition karta hai. 10 + 3 = 13.</td></tr>
+<tr><td class="inline-code">print(a - b)</td><td><span class="inline-code">-</span> subtraction karta hai. 10 - 3 = 7.</td></tr>
+<tr><td class="inline-code">print(a * b)</td><td><span class="inline-code">*</span> multiplication karta hai. 10 * 3 = 30.</td></tr>
+<tr><td class="inline-code">print(a / b)</td><td><span class="inline-code">/</span> normal division karta hai. Result decimal mein aa sakta hai.</td></tr>
+<tr><td class="inline-code">print(a % b)</td><td><span class="inline-code">%</span> remainder deta hai. 10 ko 3 se divide karne par remainder 1 hai.</td></tr>
+<tr><td class="inline-code">print(a ** b)</td><td><span class="inline-code">**</span> power operator hai. 10 ki power 3 = 1000.</td></tr>
+<tr><td class="inline-code">print(a // b)</td><td><span class="inline-code">//</span> floor division hai. Decimal part remove karke result 3 deta hai.</td></tr>
+</table>
+
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+13<br>
+7<br>
+30<br>
+3.3333333333333335<br>
+1<br>
+1000<br>
+3
+</div>
+
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Learners ko specially <span class="inline-code">/</span>, <span class="inline-code">%</span>, and <span class="inline-code">//</span> ka difference samjhao. <span class="inline-code">/</span> exact division deta hai, <span class="inline-code">%</span> remainder deta hai, aur <span class="inline-code">//</span> floor division deta hai. Example: 10 chocolates 3 students mein baanto. Har student ko 3 chocolates milenge, 1 chocolate bachegi. Yahan <span class="inline-code">//</span> ka answer 3 and <span class="inline-code">%</span> ka answer 1 hai.
+</div>
+
+<h2 class="topic">3.2 Relational Operators</h2>
+<p>Relational operators comparison ke liye use hote hain. Inka output hamesha <span class="inline-code">True</span> ya <span class="inline-code">False</span> hota hai. Example: marks passing marks se zyada hain ya nahi.</p>
+<p>Relational operators decision making ka base hain. Jab program ko decide karna hota hai ki user pass hai ya fail, age eligible hai ya nahi, balance enough hai ya nahi, tab comparison operators use hote hain.</p>
+
+<h3 class="practical-title">Practical 7: Relational Operators</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>marks = 75
 passing_marks = 40
 
 print(marks > passing_marks)
 print(marks == passing_marks)
 print(marks != passing_marks)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>marks &gt; passing_marks</code></td>
-          <td>Check karta hai marks passing marks se zyada hain ya nahi. Output: <code>True</code>.</td>
-        </tr>
-        <tr>
-          <td><code>marks == passing_marks</code></td>
-          <td>Equal comparison karta hai. Assignment <code>=</code> se different hai.</td>
-        </tr>
-        <tr>
-          <td><code>marks != passing_marks</code></td>
-          <td>Not equal check karta hai. Agar values different hain toh True.</td>
-        </tr>
-      </table>
 
-      <h3>3. Logical Operators</h3>
-      <p>Logical operators multiple conditions combine karte hain. <code>and</code> tab True hota hai jab dono conditions True hon. <code>or</code> tab True hota hai jab at least ek condition True ho. <code>not</code> result ko reverse karta hai.</p>
-      <h4>Practice Code</h4>
-      <pre><code>age = 20
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">marks = 75</td><td>Student ke marks variable mein store hue.</td></tr>
+<tr><td class="inline-code">passing_marks = 40</td><td>Passing marks value store hui. Isse marks compare honge.</td></tr>
+<tr><td class="inline-code">print(marks > passing_marks)</td><td>Check karta hai 75, 40 se greater hai ya nahi. Output <span class="inline-code">True</span>.</td></tr>
+<tr><td class="inline-code">print(marks == passing_marks)</td><td><span class="inline-code">==</span> equality comparison hai. Yeh check karta hai dono values same hain ya nahi.</td></tr>
+<tr><td class="inline-code">print(marks != passing_marks)</td><td><span class="inline-code">!=</span> not equal check karta hai. Agar values different hain toh output True.</td></tr>
+</table>
+
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+True<br>
+False<br>
+True
+</div>
+
+<div class="box warn">
+<strong class="tag">Common Confusion</strong>
+<span class="inline-code">=</span> aur <span class="inline-code">==</span> same nahi hain. <span class="inline-code">=</span> value store karta hai. <span class="inline-code">==</span> values compare karta hai. Beginners aksar yahan mistake karte hain, isliye examples ke saath repeat karna zaroori hai.
+</div>
+
+<h2 class="topic">3.3 Logical Operators</h2>
+<p>Logical operators multiple conditions ko combine karte hain. <span class="inline-code">and</span> tab True hota hai jab dono conditions True hon. <span class="inline-code">or</span> tab True hota hai jab at least ek condition True ho. <span class="inline-code">not</span> boolean value ko reverse karta hai.</p>
+<p>Logical operators real life rules jaisa kaam karte hain. Example: exam hall mein entry ke liye student ke paas admit card bhi hona chahiye and ID card bhi hona chahiye. Yeh <span class="inline-code">and</span> condition hai. Discount ke liye student ID ho ya coupon code ho, dono mein se ek chalega. Yeh <span class="inline-code">or</span> condition hai.</p>
+
+<h3 class="practical-title">Practical 8: Logical Operators</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>age = 20
 has_id = True
 
 print(age >= 18 and has_id == True)
 print(age >= 18 or has_id == True)
 print(not has_id)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>age &gt;= 18 and has_id == True</code></td>
-          <td>Dono conditions True honi chahiye: age adult ho and ID available ho.</td>
-        </tr>
-        <tr>
-          <td><code>or</code></td>
-          <td>At least ek condition True ho toh output True hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>not has_id</code></td>
-          <td>Boolean ko reverse karta hai. Agar <code>has_id</code> True hai, toh <code>not has_id</code> False hoga.</td>
-        </tr>
-      </table>
 
-      <h3>4. Assignment Operators</h3>
-      <p>Assignment operators variable ki value update karne ke liye use hote hain. <code>=</code> value assign karta hai. <code>+=</code>, <code>-=</code>, <code>*=</code> shortcut update operators hain.</p>
-      <h4>Practice Code</h4>
-      <pre><code>score = 10
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">age = 20</td><td>User ki age 20 store hui. Yeh adult check ke liye use hogi.</td></tr>
+<tr><td class="inline-code">has_id = True</td><td>Yeh boolean value batati hai ki user ke paas ID hai.</td></tr>
+<tr><td class="inline-code">age >= 18 and has_id == True</td><td>Dono conditions True honi chahiye: age 18 ya zyada ho aur ID available ho. Tabhi result True.</td></tr>
+<tr><td class="inline-code">age >= 18 or has_id == True</td><td>At least ek condition True ho toh result True. Yahan dono True hain.</td></tr>
+<tr><td class="inline-code">not has_id</td><td><span class="inline-code">not</span> value reverse karta hai. <span class="inline-code">has_id</span> True hai, toh <span class="inline-code">not has_id</span> False hoga.</td></tr>
+</table>
+
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+True<br>
+True<br>
+False
+</div>
+
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Is example ko security gate story se samjhao. Gate par guard age check karta hai and ID check karta hai. Agar age 18 se zyada hai aur ID bhi hai, entry allowed. Yeh <span class="inline-code">and</span> ka use hai. <span class="inline-code">not</span> ko reverse switch bolo: True ko False aur False ko True bana deta hai.
+</div>
+
+<h2 class="topic">3.4 Assignment Operators</h2>
+<p>Assignment operators variable ki value store ya update karne ke liye use hote hain. <span class="inline-code">=</span> value assign karta hai. <span class="inline-code">+=</span> and <span class="inline-code">*=</span> shortcut update operators hain.</p>
+<p>Assignment operators score update, wallet balance update, game points update, stock quantity update jaise tasks mein common hote hain. Agar game mein player ko 5 points milte hain, toh <span class="inline-code">score += 5</span> likhna simple and clean hota hai.</p>
+
+<h3 class="practical-title">Practical 9: Assignment Operators</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>score = 10
 
 score += 5
 print(score)
 
 score *= 2
 print(score)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>score = 10</code></td>
-          <td>Initial value 10 assign hui.</td>
-        </tr>
-        <tr>
-          <td><code>score += 5</code></td>
-          <td>Same as <code>score = score + 5</code>. New score 15.</td>
-        </tr>
-        <tr>
-          <td><code>score *= 2</code></td>
-          <td>Same as <code>score = score * 2</code>. New score 30.</td>
-        </tr>
-      </table>
 
-      <h3>5. Operator Precedence</h3>
-      <p>Operator precedence ka matlab hai Python pehle kaunsa operation solve karega. Maths ki tarah multiplication/division addition/subtraction se pehle solve hota hai. Brackets sabse high priority rakhte hain.</p>
-      <h4>Practice Code</h4>
-      <pre><code>result1 = 10 + 5 * 2
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">score = 10</td><td>Initial score 10 set hua.</td></tr>
+<tr><td>Blank line</td><td>Readability ke liye gap diya gaya.</td></tr>
+<tr><td class="inline-code">score += 5</td><td>Same as <span class="inline-code">score = score + 5</span>. Old score 10 tha, 5 add hua, new score 15.</td></tr>
+<tr><td class="inline-code">print(score)</td><td>Updated score output mein show hota hai.</td></tr>
+<tr><td class="inline-code">score *= 2</td><td>Same as <span class="inline-code">score = score * 2</span>. Current score 15 tha, 2 se multiply hua, new score 30.</td></tr>
+<tr><td class="inline-code">print(score)</td><td>Final score output mein show hota hai.</td></tr>
+</table>
+
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+15<br>
+30
+</div>
+
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Learners ko bolo ki <span class="inline-code">score += 5</span> ek shortcut hai. Long form hota hai <span class="inline-code">score = score + 5</span>. Dono ka result same hai. Shortcut code ko clean banata hai, lekin pehle long form samjhana useful hai.
+</div>
+
+<h2 class="topic">3.5 Operator Precedence</h2>
+<p>Operator precedence ka matlab hai Python pehle kaunsa operation solve karega. Maths ki tarah multiplication/division addition/subtraction se pehle solve hota hai. Brackets sabse pehle solve hote hain.</p>
+<p>Operator precedence ko maths BODMAS rule se connect karo. Agar learner ko BODMAS ya bracket priority yaad hai, toh Python precedence easily samajh aa jayegi. Brackets use karna best habit hai kyunki brackets expression ko clear bana dete hain.</p>
+
+<h3 class="practical-title">Practical 10: Operator Precedence</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>result1 = 10 + 5 * 2
 result2 = (10 + 5) * 2
 
 print(result1)
 print(result2)</code></pre>
-      <h4>Expected Output</h4>
-      <pre><code>20
-30</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>10 + 5 * 2</code></td>
-          <td>Multiplication pehle hota hai: 5 * 2 = 10, then 10 + 10 = 20.</td>
-        </tr>
-        <tr>
-          <td><code>(10 + 5) * 2</code></td>
-          <td>Bracket pehle solve hota hai: 10 + 5 = 15, then 15 * 2 = 30.</td>
-        </tr>
-      </table>
 
-      <h2>Mini Practice Project: Student Marks Calculator</h2>
-      <p>Ab Module 1-3 concepts ko combine karke ek small project banate hain. Yeh project variables, input, type casting, arithmetic operators, relational operators, logical operators, and output handling cover karega.</p>
-      <h3>Project Story</h3>
-      <p>Socho school mein teacher ke paas ek student ka naam aur 3 subjects ke marks hain. Teacher ko manually calculator se total, percentage, and pass/fail check karna padta hai. Hum Python se ek small helper program banayenge jo user se marks lega, total calculate karega, percentage nikalega, aur pass/fail result show karega. Yeh project beginner ke liye perfect hai kyunki isme input, variables, type casting, operators, comparison, and output sab ek saath use hote hain.</p>
-      <h3>Jupyter Notebook Mein Project Kaise Implement Karna Hai</h3>
-      <table>
-        <tr>
-          <th>Step</th>
-          <th>Action</th>
-          <th>Explanation</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Jupyter Notebook open karo aur new Python 3 notebook banao.</td>
-          <td>Is notebook ko aap <code>Student_Marks_Calculator.ipynb</code> naam se save kar sakte ho. Notebook mein code aur output dono same place par rahenge.</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>First cell mein heading/comment likho: <code># Student Marks Calculator</code>.</td>
-          <td>Comment learners ko batata hai ki code kis project ke liye hai. Python comment ko execute nahi karta.</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Second cell mein niche diya gaya project code paste/type karo.</td>
-          <td>Class mein learners ko code type karwana better hai, kyunki typing se syntax, brackets, quotes, and indentation familiar hoti hai.</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Cell run karo using <code>Shift + Enter</code>.</td>
-          <td>Notebook input prompts show karega. Learner values enter karega aur final output same cell ke neeche show hoga.</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Alag-alag marks ke saath cell ko dobara run karo.</td>
-          <td>Isse learners ko samajh aayega ki same code different input par different output generate karta hai.</td>
-        </tr>
-      </table>
-      <h4>Project Code</h4>
-      <pre><code>name = input("Enter student name: ")
+<h4>Expected Output</h4>
+<div class="box info">
+<strong class="tag">Expected Output</strong>
+20<br>
+30
+</div>
+
+<h4>Line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">result1 = 10 + 5 * 2</td><td>Python multiplication pehle karega: 5 * 2 = 10. Phir 10 + 10 = 20. Result <span class="inline-code">result1</span> mein store hota hai.</td></tr>
+<tr><td class="inline-code">result2 = (10 + 5) * 2</td><td>Brackets ki priority sabse high hai. Pehle 10 + 5 = 15, phir 15 * 2 = 30.</td></tr>
+<tr><td class="inline-code">print(result1)</td><td>First expression ka result 20 output mein show karta hai.</td></tr>
+<tr><td class="inline-code">print(result2)</td><td>Second expression ka result 30 output mein show karta hai.</td></tr>
+</table>
+
+<div class="box warn">
+<strong class="tag">Teaching Tip</strong>
+Learners ko bolo ki jab expression confusing lage, brackets use karo. Brackets code ko readable banate hain aur calculation ka order clear karte hain.
+</div>
+
+<div class="summary-box">
+<strong class="tag">Module 3 Summary</strong>
+Operators Python mein calculations, comparisons, logic checks, and value updates ke liye use hote hain. Expressions operators and values ka combination hote hain jo final result dete hain.
+</div>
+
+<hr class="sep">
+
+<div class="module-header" id="project">
+  <h1>Mini Project: Student Marks Calculator</h1>
+  <p>Goal: Combine variables, input, type casting, operators, and output in one practical program.</p>
+</div>
+
+<h2 class="topic">Project Story</h2>
+<p>Socho teacher ko student ke 3 subjects ke marks enter karne hain aur total, percentage, and pass/fail result nikalna hai. Manually calculator use karne ke bajay Python se ek helper program banayenge. Yeh project beginners ko real programming flow samjhata hai: input lo, process karo, output show karo.</p>
+<p>Is project ko class mein ek real school scenario ki tarah present karo. Teacher ke paas student ka naam hai, Math marks hain, Science marks hain, English marks hain. Program pehle data collect karega, phir calculation karega, phir final result readable format mein show karega. Isse learners ko samajh aayega ki programming ka matlab sirf syntax nahi, balki real problem solve karna hai.</p>
+
+<h3 class="practical-title">Project Code</h3>
+<span class="run-loc">Run in Jupyter Notebook Cell</span>
+<pre><code>name = input("Enter student name: ")
 math = float(input("Enter Math marks: "))
 science = float(input("Enter Science marks: "))
 english = float(input("Enter English marks: "))
@@ -621,362 +758,98 @@ print("Student Name:", name)
 print("Total Marks:", total)
 print("Percentage:", percentage)
 print("Passed:", is_passed)</code></pre>
-      <h4>Sample Input And Output</h4>
-      <pre><code>Enter student name: Aman
-Enter Math marks: 80
-Enter Science marks: 70
-Enter English marks: 90
 
-Student Name: Aman
-Total Marks: 240.0
-Percentage: 80.0
-Passed: True</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Explanation</th>
-        </tr>
-        <tr>
-          <td><code>name = input(...)</code></td>
-          <td>User se student name leta hai and <code>name</code> variable mein store karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>float(input(...))</code></td>
-          <td>User marks input karta hai. Input string hota hai, <code>float()</code> usko decimal number mein convert karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>total = math + science + english</code></td>
-          <td>Teen subject marks add karke total calculate hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>percentage = total / 3</code></td>
-          <td>Total marks ko 3 subjects se divide karke average percentage calculate hoti hai.</td>
-        </tr>
-        <tr>
-          <td><code>is_passed = percentage &gt;= 40</code></td>
-          <td>Relational operator use hota hai. Agar percentage 40 ya zyada hai toh True, warna False.</td>
-        </tr>
-        <tr>
-          <td><code>print(...)</code></td>
-          <td>Final output screen par show karta hai.</td>
-        </tr>
-      </table>
+<h4>Sample Input and Output</h4>
+<div class="box info">
+<strong class="tag">Sample Run</strong>
+Enter student name: Aman<br>
+Enter Math marks: 80<br>
+Enter Science marks: 70<br>
+Enter English marks: 90<br><br>
+Student Name: Aman<br>
+Total Marks: 240.0<br>
+Percentage: 80.0<br>
+Passed: True
+</div>
 
-      <h2>Complete Code Explanation Reference</h2>
-      <p>Is section ko class mein revision ke time use karo. Yahan har important code line ko individual level par explain kiya gaya hai. Aap learners ko bata sakte ho ki code ka har small part kuch na kuch responsibility rakhta hai. Jaise sentence mein har word ka role hota hai, waise program mein har keyword, symbol, bracket, and variable ka role hota hai.</p>
+<h4>Full line-by-line explanation</h4>
+<table>
+<tr><th>Line / Code</th><th>Detailed Simple Hinglish Explanation</th></tr>
+<tr><td class="inline-code">name = input("Enter student name: ")</td><td>User se student ka name input leta hai. Input text form mein aata hai aur <span class="inline-code">name</span> variable mein store hota hai. Name text hai, isliye type casting ki zaroorat nahi.</td></tr>
+<tr><td class="inline-code">math = float(input("Enter Math marks: "))</td><td>User se Math marks leta hai. <span class="inline-code">input()</span> string deta hai. <span class="inline-code">float()</span> us string ko decimal number mein convert karta hai taaki calculation ho sake.</td></tr>
+<tr><td class="inline-code">science = float(input("Enter Science marks: "))</td><td>Science marks input leta hai and float mein convert karta hai. Alag variable isliye hai kyunki har subject ka marks separately store karna hai.</td></tr>
+<tr><td class="inline-code">english = float(input("Enter English marks: "))</td><td>English marks input leta hai. Agar learner 89.5 enter kare toh bhi program handle karega kyunki float decimal values support karta hai.</td></tr>
+<tr><td>Blank line</td><td>Input section aur calculation section ko visually separate karta hai.</td></tr>
+<tr><td class="inline-code">total = math + science + english</td><td>Teen subject marks add hote hain. Result <span class="inline-code">total</span> variable mein store hota hai.</td></tr>
+<tr><td class="inline-code">percentage = total / 3</td><td>Total ko 3 subjects se divide karke average percentage nikalti hai. <span class="inline-code">/</span> division operator hai.</td></tr>
+<tr><td class="inline-code">is_passed = percentage >= 40</td><td>Relational operator use ho raha hai. Agar percentage 40 ya zyada hai toh result <span class="inline-code">True</span>, warna <span class="inline-code">False</span>.</td></tr>
+<tr><td>Blank line</td><td>Calculation section aur output section ko separate karta hai.</td></tr>
+<tr><td class="inline-code">print("Student Name:", name)</td><td>Output mein label and actual name show karta hai. Label se result readable banta hai.</td></tr>
+<tr><td class="inline-code">print("Total Marks:", total)</td><td>Total marks output area mein show karta hai.</td></tr>
+<tr><td class="inline-code">print("Percentage:", percentage)</td><td>Calculated percentage show karta hai.</td></tr>
+<tr><td class="inline-code">print("Passed:", is_passed)</td><td>Pass/fail boolean result show karta hai. <span class="inline-code">True</span> ka matlab passed, <span class="inline-code">False</span> ka matlab not passed.</td></tr>
+</table>
 
-      <h3>Code 1: First Python Program - Deep Explanation</h3>
-      <pre><code>print("Hello Python")
-print("Welcome to programming")</code></pre>
-      <table>
-        <tr>
-          <th>Code Part</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>print</code></td>
-          <td><code>print</code> Python ka built-in function hai. Built-in ka matlab Python ke andar already available hai, hume alag se banana nahi padta. Jupyter Notebook mein iska kaam output area mein result/message show karna hai.</td>
-        </tr>
-        <tr>
-          <td><code>()</code></td>
-          <td>Parentheses function ko call karne ke liye use hote hain. Matlab hum Python ko bol rahe hain: <code>print</code> function run karo.</td>
-        </tr>
-        <tr>
-          <td><code>"Hello Python"</code></td>
-          <td>Double quotes ke andar text likha hai, isliye yeh string hai. String ka matlab text data. Python is text ko as-it-is screen par show karega.</td>
-        </tr>
-        <tr>
-          <td>Second <code>print(...)</code></td>
-          <td>Python upar se niche line by line chalta hai. Pehle <code>Hello Python</code> print hoga, phir next line ka message print hoga.</td>
-        </tr>
-      </table>
+<h4>Project Flow Explanation</h4>
+<table>
+<tr><th>Phase</th><th>Code Lines</th><th>Simple Hinglish Explanation</th></tr>
+<tr><td>Input Phase</td><td><span class="inline-code">name</span>, <span class="inline-code">math</span>, <span class="inline-code">science</span>, <span class="inline-code">english</span></td><td>Program user se data collect karta hai. Name text hai, marks numbers hain, isliye marks ko <span class="inline-code">float()</span> se convert kiya.</td></tr>
+<tr><td>Processing Phase</td><td><span class="inline-code">total</span>, <span class="inline-code">percentage</span>, <span class="inline-code">is_passed</span></td><td>Program calculation karta hai. Total, percentage, and pass/fail condition yahin decide hoti hai.</td></tr>
+<tr><td>Output Phase</td><td><span class="inline-code">print(...)</span> lines</td><td>Program final result user ko readable format mein show karta hai.</td></tr>
+</table>
 
-      <h3>Code 2: Variables - Deep Explanation</h3>
-      <pre><code>student_name = "Aman"
-age = 21
-marks = 88.5
+<div class="box info">
+<strong class="tag">Class Explanation Script</strong>
+Project explain karte time learners ko bolo ki har real program mein generally 3 parts hote hain: input, processing, output. Input means data lena. Processing means calculation ya logic apply karna. Output means result show karna. Yeh Student Marks Calculator isi pattern ka beginner-friendly example hai.
+</div>
 
-print(student_name)
-print(age)
-print(marks)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>student_name = "Aman"</code></td>
-          <td>Yahan <code>student_name</code> ek variable hai. Variable ko aap labelled box samjho. Is box ke andar <code>"Aman"</code> text store kiya gaya hai. <code>=</code> ka matlab equal in maths nahi, yahan assignment hai: right side value ko left side variable mein rakho.</td>
-        </tr>
-        <tr>
-          <td><code>age = 21</code></td>
-          <td><code>age</code> variable mein <code>21</code> store hua. Quotes nahi hain, isliye yeh number hai. Number hone ki wajah se is par calculation kar sakte hain, jaise <code>age + 1</code>.</td>
-        </tr>
-        <tr>
-          <td><code>marks = 88.5</code></td>
-          <td><code>marks</code> variable mein decimal value store hai. Python decimal number ko <code>float</code> bolta hai. Marks, percentage, price jaisi values float ho sakti hain.</td>
-        </tr>
-        <tr>
-          <td>Blank line</td>
-          <td>Blank line Python ke logic ko change nahi karti. Yeh code ko readable banane ke liye use hoti hai, jaise notebook mein paragraph gap.</td>
-        </tr>
-        <tr>
-          <td><code>print(student_name)</code></td>
-          <td>Yahan quotes nahi hain, isliye Python <code>student_name</code> ko variable samjhega aur uske andar stored value <code>Aman</code> print karega.</td>
-        </tr>
-        <tr>
-          <td><code>print(age)</code></td>
-          <td><code>age</code> variable ki value screen par show hogi. Output <code>21</code> aayega.</td>
-        </tr>
-        <tr>
-          <td><code>print(marks)</code></td>
-          <td><code>marks</code> variable ki decimal value print hogi. Output <code>88.5</code> aayega.</td>
-        </tr>
-      </table>
+<h4>Common Errors</h4>
+<table>
+<tr><th>Error</th><th>Reason</th><th>Fix</th></tr>
+<tr><td>ValueError</td><td>User marks mein text enter kar deta hai, jaise <span class="inline-code">eighty</span>.</td><td>Marks number mein enter karo, jaise <span class="inline-code">80</span> ya <span class="inline-code">80.5</span>.</td></tr>
+<tr><td>Wrong percentage</td><td>Total ko wrong subject count se divide kiya.</td><td>Yahan 3 subjects hain, isliye <span class="inline-code">total / 3</span> correct hai.</td></tr>
+<tr><td>String concatenation issue</td><td>Marks ko float/int mein convert nahi kiya.</td><td>Marks input ke saath <span class="inline-code">float(input(...))</span> use karo.</td></tr>
+</table>
 
-      <h3>Code 3: Data Types - Deep Explanation</h3>
-      <pre><code>roll_no = 101
-percentage = 87.5
-name = "Riya"
-is_passed = True
+<div class="summary-box">
+<strong class="tag">Project Summary</strong>
+Is project mein humne input, variables, type casting, arithmetic operators, relational operators, and output handling ko ek real classroom example mein use kiya. Yeh beginner ke liye first practical mini project hai.
+</div>
 
-print(type(roll_no))
-print(type(percentage))
-print(type(name))
-print(type(is_passed))</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>roll_no = 101</code></td>
-          <td>Roll number whole number hai, isliye Python isko <code>int</code> type maanega. <code>int</code> ka full form integer hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>percentage = 87.5</code></td>
-          <td>Percentage decimal mein hai, isliye Python isko <code>float</code> type maanega. Float decimal calculations ke liye useful hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>name = "Riya"</code></td>
-          <td>Name text hai aur quotes ke andar likha hai, isliye yeh <code>str</code> type hai. <code>str</code> ka matlab string, yani text data.</td>
-        </tr>
-        <tr>
-          <td><code>is_passed = True</code></td>
-          <td>Yeh boolean value hai. Boolean sirf do values leta hai: <code>True</code> ya <code>False</code>. Decision making mein boolean bahut important hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>type(roll_no)</code></td>
-          <td><code>type()</code> function variable ka data type batata hai. Is line ka output hoga <code>&lt;class 'int'&gt;</code>.</td>
-        </tr>
-        <tr>
-          <td><code>print(type(...))</code></td>
-          <td>Yahan nested function use hua hai. Pehle <code>type()</code> data type find karega, phir <code>print()</code> us result ko screen par show karega.</td>
-        </tr>
-      </table>
+<hr class="sep">
 
-      <h3>Code 4: Type Casting - Deep Explanation</h3>
-      <pre><code>num1 = "10"
-num2 = "20"
+<div class="module-header" id="revision">
+  <h1>Quick Revision and Common Mistakes</h1>
+  <p>Goal: Revise important points before ending the class.</p>
+</div>
 
-total = int(num1) + int(num2)
+<h2 class="topic">Quick Revision</h2>
+<table>
+<tr><th>Concept</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Python</td><td>Programming language for giving instructions to computer.</td><td><span class="inline-code">print("Hello")</span></td></tr>
+<tr><td>Variable</td><td>Named box for storing value.</td><td><span class="inline-code">age = 21</span></td></tr>
+<tr><td>String</td><td>Text data.</td><td><span class="inline-code">"Aman"</span></td></tr>
+<tr><td>Integer</td><td>Whole number.</td><td><span class="inline-code">101</span></td></tr>
+<tr><td>Float</td><td>Decimal number.</td><td><span class="inline-code">88.5</span></td></tr>
+<tr><td>Boolean</td><td>True/False value.</td><td><span class="inline-code">True</span></td></tr>
+<tr><td>Type Casting</td><td>Data type convert karna.</td><td><span class="inline-code">int("10")</span></td></tr>
+<tr><td>Operator</td><td>Action symbol.</td><td><span class="inline-code">+</span>, <span class="inline-code">></span>, <span class="inline-code">and</span></td></tr>
+</table>
 
-print(total)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>num1 = "10"</code></td>
-          <td>Dekhne mein 10 number jaisa lag raha hai, lekin quotes ke andar hai. Isliye Python ke liye yeh text/string hai, number nahi.</td>
-        </tr>
-        <tr>
-          <td><code>num2 = "20"</code></td>
-          <td>Same tarah <code>"20"</code> bhi string hai. Agar hum directly <code>num1 + num2</code> karenge toh output <code>1020</code> ho sakta hai, kyunki strings concatenate hoti hain.</td>
-        </tr>
-        <tr>
-          <td><code>int(num1)</code></td>
-          <td><code>int()</code> string number ko real integer number mein convert karta hai. <code>"10"</code> se <code>10</code> ban jata hai.</td>
-        </tr>
-        <tr>
-          <td><code>int(num2)</code></td>
-          <td><code>"20"</code> string ko integer <code>20</code> mein convert karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>total = int(num1) + int(num2)</code></td>
-          <td>Conversion ke baad Python actual addition karta hai: 10 + 20 = 30. Result <code>total</code> variable mein store hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>print(total)</code></td>
-          <td>Final result screen par show hota hai. Output <code>30</code> aayega.</td>
-        </tr>
-      </table>
+<h2 class="topic">Common Beginner Mistakes</h2>
+<table>
+<tr><th>Mistake</th><th>Why It Happens</th><th>Correct Way</th></tr>
+<tr><td>Quotes miss karna</td><td>Text string hai, quotes required hain.</td><td><span class="inline-code">name = "Aman"</span></td></tr>
+<tr><td><span class="inline-code">=</span> aur <span class="inline-code">==</span> confuse karna</td><td><span class="inline-code">=</span> assign karta hai, <span class="inline-code">==</span> compare karta hai.</td><td><span class="inline-code">marks == 40</span></td></tr>
+<tr><td>Input ko number mein convert na karna</td><td><span class="inline-code">input()</span> string deta hai.</td><td><span class="inline-code">age = int(input(...))</span></td></tr>
+<tr><td>Variable name mein space dena</td><td>Python variable names mein spaces allowed nahi.</td><td><span class="inline-code">student_name</span></td></tr>
+</table>
 
-      <h3>Code 5: Input And Output - Deep Explanation</h3>
-      <pre><code>name = input("Enter your name: ")
-age = int(input("Enter your age: "))
+<div class="summary-box">
+<strong class="tag">Final Summary</strong>
+Module 1 mein Python introduction, features, use cases, and Jupyter Notebook execution samjha. Module 2 mein variables, data types, type casting, input and output handling cover hua. Module 3 mein operators and expressions cover hue. Last mein Student Marks Calculator project se sab concepts practical form mein combine hue.
+</div>
 
-print("Hello", name)
-print("Next year your age will be", age + 1)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>input("Enter your name: ")</code></td>
-          <td><code>input()</code> user se keyboard input leta hai. Brackets ke andar jo message hai woh prompt hai, yani user ko instruction: name enter karo.</td>
-        </tr>
-        <tr>
-          <td><code>name = input(...)</code></td>
-          <td>User jo bhi name type karega, woh <code>name</code> variable mein store ho jayega. Example: user <code>Rahul</code> type kare toh <code>name</code> mein <code>Rahul</code> store hoga.</td>
-        </tr>
-        <tr>
-          <td><code>int(input("Enter your age: "))</code></td>
-          <td>Age input pehle string form mein aata hai. <code>int()</code> usko number mein convert karta hai, taaki <code>age + 1</code> calculation ho sake.</td>
-        </tr>
-        <tr>
-          <td><code>print("Hello", name)</code></td>
-          <td>Comma ka use karke ek fixed text aur ek variable saath print kiya gaya hai. Python comma ke beech automatic space add karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>age + 1</code></td>
-          <td>Yeh expression next year age calculate karta hai. Agar age 20 hai toh result 21 hoga.</td>
-        </tr>
-      </table>
-
-      <h3>Code 6: Arithmetic Operators - Deep Explanation</h3>
-      <pre><code>a = 10
-b = 3
-
-print(a + b)
-print(a - b)
-print(a * b)
-print(a / b)
-print(a % b)
-print(a ** b)
-print(a // b)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>a = 10</code></td>
-          <td><code>a</code> variable mein 10 store kiya. Isko first number maan sakte hain.</td>
-        </tr>
-        <tr>
-          <td><code>b = 3</code></td>
-          <td><code>b</code> variable mein 3 store kiya. Isko second number maan sakte hain.</td>
-        </tr>
-        <tr>
-          <td><code>print(a + b)</code></td>
-          <td><code>+</code> addition karta hai. 10 + 3 = 13, output 13.</td>
-        </tr>
-        <tr>
-          <td><code>print(a - b)</code></td>
-          <td><code>-</code> subtraction karta hai. 10 - 3 = 7.</td>
-        </tr>
-        <tr>
-          <td><code>print(a * b)</code></td>
-          <td><code>*</code> multiplication karta hai. 10 * 3 = 30.</td>
-        </tr>
-        <tr>
-          <td><code>print(a / b)</code></td>
-          <td><code>/</code> normal division karta hai. Python division ka result float deta hai, isliye output decimal mein aa sakta hai.</td>
-        </tr>
-        <tr>
-          <td><code>print(a % b)</code></td>
-          <td><code>%</code> modulo operator hai. Yeh division ke baad remainder deta hai. 10 ko 3 se divide karne par remainder 1 hai.</td>
-        </tr>
-        <tr>
-          <td><code>print(a ** b)</code></td>
-          <td><code>**</code> power operator hai. 10 ** 3 ka matlab 10 ki power 3, yani 1000.</td>
-        </tr>
-        <tr>
-          <td><code>print(a // b)</code></td>
-          <td><code>//</code> floor division hai. Yeh decimal part hata kar integer-like result deta hai. 10 // 3 ka result 3.</td>
-        </tr>
-      </table>
-
-      <h3>Code 7: Student Marks Calculator - Full Line-by-Line Explanation</h3>
-      <pre><code>name = input("Enter student name: ")
-math = float(input("Enter Math marks: "))
-science = float(input("Enter Science marks: "))
-english = float(input("Enter English marks: "))
-
-total = math + science + english
-percentage = total / 3
-is_passed = percentage >= 40
-
-print("Student Name:", name)
-print("Total Marks:", total)
-print("Percentage:", percentage)
-print("Passed:", is_passed)</code></pre>
-      <table>
-        <tr>
-          <th>Line / Code</th>
-          <th>Detailed Simple Hinglish Explanation</th>
-        </tr>
-        <tr>
-          <td><code>name = input("Enter student name: ")</code></td>
-          <td>Program user se student ka naam maangta hai. Jo name user type karega, woh <code>name</code> variable mein store ho jayega. Name text hota hai, isliye type casting ki zaroorat nahi.</td>
-        </tr>
-        <tr>
-          <td><code>math = float(input("Enter Math marks: "))</code></td>
-          <td>Program Math marks maangta hai. <code>input()</code> marks ko text form mein leta hai. <code>float()</code> us text ko decimal number mein convert karta hai, taaki calculation possible ho.</td>
-        </tr>
-        <tr>
-          <td><code>science = float(input("Enter Science marks: "))</code></td>
-          <td>Science marks bhi same process se liye ja rahe hain. Alag variable isliye banaya kyunki har subject ki value separately store karni hai.</td>
-        </tr>
-        <tr>
-          <td><code>english = float(input("Enter English marks: "))</code></td>
-          <td>English marks ko decimal number mein store kiya. Agar learner 89.5 bhi enter kare toh program handle kar lega.</td>
-        </tr>
-        <tr>
-          <td>Blank line</td>
-          <td>Yeh readability ke liye hai. Input section aur calculation section ko visually separate karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>total = math + science + english</code></td>
-          <td>Yahan arithmetic addition use ho raha hai. Teen subject marks add hoke <code>total</code> variable mein store hote hain.</td>
-        </tr>
-        <tr>
-          <td><code>percentage = total / 3</code></td>
-          <td>Percentage/average nikalne ke liye total ko number of subjects, yani 3, se divide kiya. <code>/</code> division operator hai.</td>
-        </tr>
-        <tr>
-          <td><code>is_passed = percentage &gt;= 40</code></td>
-          <td>Yeh relational comparison hai. Agar percentage 40 ya usse zyada hai toh result <code>True</code>, warna <code>False</code>. Yeh result <code>is_passed</code> variable mein store hota hai.</td>
-        </tr>
-        <tr>
-          <td><code>print("Student Name:", name)</code></td>
-          <td>Output mein label <code>Student Name:</code> aur actual student name dono show honge. Label user ko output samajhne mein help karta hai.</td>
-        </tr>
-        <tr>
-          <td><code>print("Total Marks:", total)</code></td>
-          <td>Total marks screen par show karta hai. Yeh calculated value hai, directly user input nahi.</td>
-        </tr>
-        <tr>
-          <td><code>print("Percentage:", percentage)</code></td>
-          <td>Calculated percentage show karta hai. Beginner ko yahan samjhao ki variable mein stored calculation ka result print ho raha hai.</td>
-        </tr>
-        <tr>
-          <td><code>print("Passed:", is_passed)</code></td>
-          <td>Pass/fail ka boolean result show karta hai. Agar percentage 40 ya zyada hai toh <code>True</code>, warna <code>False</code>.</td>
-        </tr>
-      </table>
-
-      <h2>Final Summary</h2>
-      <p>Module 1 mein Python ka introduction, features, use cases, installation, and running scripts samjha. Module 2 mein variables, naming rules, data types, type casting, and input/output handling cover hua. Module 3 mein operators and expressions cover hue, jisme arithmetic, relational, logical, assignment operators and precedence included hai.</p>
-      <p>In modules ke baad learner simple Python programs likh sakta hai, user input le sakta hai, data type samajh sakta hai, calculations kar sakta hai, and comparison/logical results generate kar sakta hai.</p>
-    </article>
-  </main>
-
-  <footer class="footer">
-    <p>Python Programming Module 1-3 - Simple Hinglish Teaching Notes</p>
-  </footer>
+</div>
 </body>
 </html>
